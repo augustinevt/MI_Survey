@@ -1,0 +1,14 @@
+.button {
+  width: 150px;
+  height: 50px;
+  display: flex;
+  margin: 10px;
+  background: white;
+  box-shadow: 1px 1px 5px #ddd;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  box-shadow: 1px 1px 10px #eee;
+}
