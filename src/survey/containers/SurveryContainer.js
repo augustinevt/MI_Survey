@@ -16,7 +16,7 @@ const mapDispatchToProps = ({
   doSomething,
 })
 
-class F3Container extends React.Component {
+class SurveyContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -29,14 +29,13 @@ class F3Container extends React.Component {
   }
 
   render() {
-    console.log('Hello from HC:render! this is getHistoricalOrders!', this.props.historical)
     return(
       <div>
-        <h1> This is F3Container </h1>
+        <h1> This is the Container </h1>
         { this.props.children }
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(F3Container);
+export default connect(mapStateToProps, mapDispatchToProps)(SurveyContainer);

@@ -10,7 +10,7 @@ class F3Component extends React.Component {
 
   render() {
     return (
-      <h2> This is the F3Component</h2>
+      <h2> This is the SurveyComponent</h2>
     )
   }
 }
