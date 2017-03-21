@@ -12,8 +12,8 @@ class Button extends React.Component {
 
   onClick() {
     const label = this.props.label;
-    // const value = this.props.value ? false : true;
-    const value = true;
+    const value = this.props.value ? false : true;
+    // const value = true;
 
 
     // console.log( { label, value }, this.props.id );

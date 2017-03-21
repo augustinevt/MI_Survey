@@ -30,7 +30,7 @@ class TextQuestion extends React.Component {
     return (
       <div>
         <h2> {this.props.question.title }</h2>
-        <textArea onChange={ this.onChange}  />
+        <textArea value={this.props.question.response} onChange={ this.onChange}  />
       </div>
     )
   }

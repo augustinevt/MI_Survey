@@ -92,7 +92,8 @@ function questions(state = [], action) {
   switch (action.type) {
     case UPDATE_DATA:
     return state.map((question, index) => {
-       if (index === action.newQ) {
+      console.log('THIS IS FOR TEXT IN QUESTIONS', action.newQ)
+       if (question.id === action.newQ.id) {
          // Copy the object before mutating
          return Object.assign({}, question, action.newQ)
        }
