@@ -20,8 +20,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} >
       <Route path="/" component={ surveyContainers.SurveyContainer }>
-        <IndexRoute component={ surveyContainers.SectionContainer } >
-        </IndexRoute>
+        <Route path="/survey" component={surveyContainers.SectionContainer} />
+        <IndexRoute component={ surveyContainers.WelcomeContainer } />
       </Route>
     </Router>
   </Provider>,

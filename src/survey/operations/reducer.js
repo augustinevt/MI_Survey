@@ -1,4 +1,4 @@
-import { CHANGE_STAGE, UPDATE_DATA } from './actionTypes';
+import { CHANGE_STAGE, UPDATE_DATA, UPDATE_USER } from './actionTypes';
 // import surveySections from '../../../mockData/questions';
 const surveySections = [
   {
@@ -62,10 +62,10 @@ const surveySections = [
 
 const initialQuestions = [
   {
-    id: 1,
+    id: 0,
     title: "Stage Once Select",
     type: 'select',
-    section: 0,
+    section: 1,
     response: [
       {
         label: 'A button',
@@ -78,17 +78,17 @@ const initialQuestions = [
     ]
   },
   {
-    id: 2,
+    id: 1,
     title: "Stage One Select?",
     type: 'text',
-    section: 0,
+    section: 1,
     response: '',
   },
   {
-    id: 1,
+    id: 2,
     title: "Stage Two Select",
     type: 'select',
-    section: 1,
+    section: 2,
     response: [
       {
         label: 'A button',
@@ -101,17 +101,17 @@ const initialQuestions = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     title: "Stage Two Text",
     type: 'text',
-    section: 1,
+    section: 2,
     response: '',
   },
   {
-    id: 1,
+    id: 4,
     title: "Stage Three Select",
     type: 'select',
-    section: 2,
+    section: 3,
     response: [
       {
         label: 'A button',
@@ -124,13 +124,20 @@ const initialQuestions = [
     ]
   },
   {
-    id: 2,
+    id: 5,
     title: "Stage Three Select",
     type: 'text',
-    section: 2,
+    section: 3,
     response: '',
   }
 ]
+
+const initUser = {
+  name: '',
+  phone: '',
+  company: '',
+  email: '',
+}
 
 //// Real Stuff
 
@@ -148,9 +155,19 @@ function questions(state = [], action) {
   }
 }
 
+function user(state = {}, action) {
+  switch (action.type) {
+    case UPDATE_USER:
+      console.log("mucho Gracias", state, action.newData, Object.assign({}, state, action.newData))
+      return Object.assign({}, state, action.newData)
+    default:
+      return state
+  }
+}
 
 
-const initialState = { surveySections, foo: 'fee', stage: 0, questions: initialQuestions }
+
+const initialState = { surveySections, user: initUser, stage: 1, questions: initialQuestions }
 
 const F3Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -161,6 +178,11 @@ const F3Reducer = (state = initialState, action) => {
     case UPDATE_DATA:
       return Object.assign({}, state, {
        questions: questions(state.questions, action)
+     })
+
+    case UPDATE_USER:
+      return Object.assign({}, state, {
+       user: user(state.user, action)
      })
 
     default:

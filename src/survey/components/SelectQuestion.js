@@ -14,7 +14,6 @@ class Select extends React.Component {
   getOptions() {
     const returnArray = [];
     this.props.question.response.forEach((q, i)=>{
-      console.log("SELCOM: forEach", q, i);
       returnArray.push(
         <Button
           key={i} id={i}
@@ -27,10 +26,6 @@ class Select extends React.Component {
     return returnArray;
   }
 
-  componentDidUpdate() {
-    console.log('update')
-  }
-
   onClick(newRes, id) {
     const newQ =  Object.assign({}, this.props.question);
     // console.log("SCOM: new Q : before", newQ);
@@ -40,9 +35,8 @@ class Select extends React.Component {
     // console.log("SCOM: newRes",id, newQ.response[id])
 
     newQ.response[id] = newRes;
-    newQ.title = 'newRes';
 
-    console.log("SCOM: id", this.props.question.id)
+    // console.log("SCOM: id", this.props.question.id)
 
     this.props.handleChange(newQ, this.props.question.id)
 
@@ -50,8 +44,6 @@ class Select extends React.Component {
   }
 
   render() {
-    console.log('SCOM: render props', this.props);
-
     const buttons = this.getOptions();
 
     return (
