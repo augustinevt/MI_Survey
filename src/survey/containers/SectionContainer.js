@@ -5,6 +5,7 @@ import { changeStageThunk, updateDataThunk } from '../operations/actions';
 import { sectionSelector } from '../operations/selectors';
 
 import SelectQuestion from '../components/SelectQuestion'
+import TextQuestion from '../components/TextQuestion'
 
 const mapStateToProps = ( state ) => {
   console.log(state)
@@ -41,6 +42,7 @@ class SurveyContainer extends React.Component {
         <h1 onClick={ this.onSectionChange }> This is the SectionContainer </h1>
         { this.props.stage }
         < SelectQuestion handleChange={ this.handleChange } question={this.props.questions[0]} key={1} id={0} />
+        < TextQuestion handleChange={ this.handleChange } question={this.props.questions[1]} key={2} id={0} />
       </div>
     );
   }

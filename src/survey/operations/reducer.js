@@ -60,10 +60,11 @@ const surveySections = [
 ]
 
 
-const questions = [
+const initialQuestions = [
   {
     id: 1,
     title: "What is this?",
+    type: 'select',
     section: 1,
     response: [
       {
@@ -75,34 +76,48 @@ const questions = [
         value: false,
       },
     ]
+  },
+  {
+    id: 2,
+    title: "Text Question?",
+    type: 'text',
+    section: 1,
+    response: '',
   }
 ]
 
 //// Real Stuff
 
+function questions(state = [], action) {
+  switch (action.type) {
+    case UPDATE_DATA:
+    return state.map((question, index) => {
+       if (index === action.newQ) {
+         // Copy the object before mutating
+         return Object.assign({}, question, action.newQ)
+       }
+       return question
+     })
+    default:
+      return state
+  }
+}
 
-const initialState = { surveySections, stage: 0, questions }
+
+
+const initialState = { surveySections, foo: 'fee', stage: 0, questions: initialQuestions }
 
 const F3Reducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_STAGE:
       console.log("in Change_Stage", action.newStage)
       return { ...state, stage: action.newStage }
+
     case UPDATE_DATA:
+      return Object.assign({}, state, {
+       questions: questions(state.questions, action)
+     })
 
-      const questions = Object.assign({}, state).questions;
-
-      console.log("REDUCER QUESTIONS", questions)
-
-      questions.forEach((q, i) => {
-        if (q.id === action.newQ.id) {
-          questions[i] = action.newQ
-        }
-      })
-
-      console.log("updateData");
-
-      return { ...state, questions }
     default:
       console.log("THIS IS THE INITIAL STATE", state)
       return {...state}

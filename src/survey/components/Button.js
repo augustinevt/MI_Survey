@@ -24,8 +24,8 @@ class Button extends React.Component {
   }
 
   render() {
-    console.log('Button: render props', this.props);
-    const value = this.props.label ? 'False' : 'True';
+    console.log('Button: render props', this.props.value);
+    const value = this.props.value ? 'True' : 'False';
     return (
       <h2 onClick={this.onClick}> This is Button: {this.props.label} {value} </h2>
     )
