@@ -6,7 +6,7 @@ import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import surveyReducer,  { surveyContainers, surveyComponents } from './survey';
+import surveyReducer,  { surveyContainers } from './survey';
 
 const middleware = [thunk];
 

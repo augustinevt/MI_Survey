@@ -5,9 +5,9 @@ const changeStage = newStage => ({
   newStage,
 });
 
-const updateData = newData => ({
+const updateData = newQ => ({
   type: UPDATE_DATA,
-  newData,
+  newQ,
 });
 
 export const changeStageThunk = () => (dispatch) => {

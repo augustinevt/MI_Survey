@@ -60,10 +60,28 @@ const surveySections = [
 ]
 
 
+const questions = [
+  {
+    id: 1,
+    title: "What is this?",
+    section: 1,
+    response: [
+      {
+        label: 'A button',
+        value: false,
+      },
+      {
+        label: 'A Pipe',
+        value: false,
+      },
+    ]
+  }
+]
+
 //// Real Stuff
 
 
-const initialState = { surveySections, stage: 0 }
+const initialState = { surveySections, stage: 0, questions }
 
 const F3Reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -71,9 +89,22 @@ const F3Reducer = (state = initialState, action) => {
       console.log("in Change_Stage", action.newStage)
       return { ...state, stage: action.newStage }
     case UPDATE_DATA:
-    console.log("updateData")
-      return { ...state, actionData: action.payload }
+
+      const questions = Object.assign({}, state).questions;
+
+      console.log("REDUCER QUESTIONS", questions)
+
+      questions.forEach((q, i) => {
+        if (q.id === action.newQ.id) {
+          questions[i] = action.newQ
+        }
+      })
+
+      console.log("updateData");
+
+      return { ...state, questions }
     default:
+      console.log("THIS IS THE INITIAL STATE", state)
       return {...state}
   }
 }

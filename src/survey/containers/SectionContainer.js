@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import { changeStageThunk, updateDataThunk } from '../operations/actions';
 import { sectionSelector } from '../operations/selectors';
 
+import SelectQuestion from '../components/SelectQuestion'
+
 const mapStateToProps = ( state ) => {
   console.log(state)
-  return { section: sectionSelector(state), stage: state.stage }
+  return { section: sectionSelector(state), stage: state.stage, questions: state.questions }
 };
 
 const mapDispatchToProps = ({
@@ -20,19 +22,25 @@ class SurveyContainer extends React.Component {
     this.state = {};
 
     this.onSectionChange = this.onSectionChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   onSectionChange(value) {
     this.props.changeStageThunk(3)
-    this.props.updateDataThunk({ title: "weeee"})
+  }
+
+  handleChange(newQ, qId) {
+    console.log("CHANGE HANDLED", newQ, qId);
+    this.props.updateDataThunk(newQ)
   }
 
   render() {
-    console.log('SecCon: props data', this.props.section)
+    console.log('SecCon: props data', this.props.questions)
     return(
       <div>
         <h1 onClick={ this.onSectionChange }> This is the SectionContainer </h1>
         { this.props.stage }
+        < SelectQuestion handleChange={ this.handleChange } question={this.props.questions[0]} key={1} id={0} />
       </div>
     );
   }
