@@ -11,10 +11,11 @@ const responseHandler = (reject, resolve, err, res) => {
 };
 
 api.default = {
-  get() {
+  post(data) {
     return new Promise((resolve, reject) => {
       request
-        .get('http://jsonplaceholder.typicode.com/posts/1')
+        .post('http://localhost:8080/survey')
+        .send(data)
         .end((err, res) => {
           console.log('api res', res);
           responseHandler(reject, resolve, err, res);

@@ -1,4 +1,5 @@
 import { CHANGE_STAGE, UPDATE_DATA, UPDATE_USER } from './actionTypes';
+import  api from '../../helpers/api';
 
 const changeStage = newStage => ({
   type: CHANGE_STAGE,
@@ -25,4 +26,12 @@ export const updateDataThunk = (newData) => (dispatch) => {
 
 export const updateUserThunk = (newData) => (dispatch) => {
   dispatch(updateUser(newData))
+}
+
+export const submitData = () => (dispatch, getState) => {
+  const state = getState();
+  const exportData = { user: state.user, questions: state.questions}
+  api.default.post(exportData).then((res) => {
+    console.log(res)
+  })
 }

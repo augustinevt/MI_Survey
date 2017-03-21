@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getData, doSomething } from '../operations/actions';
+import { submitData } from '../operations/actions';
 // import { defaultSelector } from '../operations/selectors';
 
 // import { ChartJSDefault } from '../charts';
@@ -13,8 +13,7 @@ const mapStateToProps = ( state ) => {
 };
 
 const mapDispatchToProps = ({
-  getData,
-  doSomething,
+  submitData,
 })
 
 class SurveyContainer extends React.Component {
@@ -23,10 +22,15 @@ class SurveyContainer extends React.Component {
     this.state = {};
 
     this.onChange = this.onChange.bind(this);
+    this.submitData = this.submitData.bind(this);
   }
 
   onChange(value) {
     this.props.changeF3Filter(value)
+  }
+
+  submitData() {
+    this.props.submitData()
   }
 
   render() {
@@ -35,6 +39,8 @@ class SurveyContainer extends React.Component {
       <div>
         <h1> This is the Container </h1>
         { this.props.children }
+        <hr/>
+        <button onClick={ this.submitData }> Submit </button>
       </div>
     );
   }
