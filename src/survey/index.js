@@ -2,24 +2,26 @@ import reducer from './operations/reducer';
 import actions from './operations/actions';
 import actionTypes from './operations/actionTypes';
 
-import F3Container from './containers/F3Container';
+import SurveyContainer from './containers/SurveyContainer';
+import SectionContainer from './containers/SectionContainer';
 
-import F3Component from './components/F3Component';
+import SurveyComponent from './components/SurveyComponent';
 
-const F3Containers = {
-  F3Container,
+const surveyContainers = {
+  SurveyContainer,
+  SectionContainer,
 }
 
-const F3Components = {
-  F3Component,
+const surveyComponents = {
+  SurveyComponent,
 }
 
 export {
   reducer,
   actions,
   actionTypes,
-  F3Containers,
-  F3Components,
+  surveyContainers,
+  surveyComponents,
 }
 
 export default reducer;

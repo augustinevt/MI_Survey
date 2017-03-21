@@ -1,19 +1,19 @@
-import { LOAD_DATA, SOME_ACTION } from './actionTypes';
+import { CHANGE_STAGE, UPDATE_DATA } from './actionTypes';
 
-const loadData = data => ({
-  type: LOAD_DATA,
-  data,
+const changeStage = newStage => ({
+  type: CHANGE_STAGE,
+  newStage,
 });
 
-const someAction = payload => ({
-  type: SOME_ACTION,
-  payload,
+const updateData = newData => ({
+  type: UPDATE_DATA,
+  newData,
 });
 
-export const getData = () => (dispatch) => {
-  dispatch(loadData('placeholder data'));
+export const changeStageThunk = () => (dispatch) => {
+  dispatch(changeStage(1));
 }
 
-export const doSomething = () => (dispatch) => {
-  dispatch(someAction('placeholder payload'))
+export const updateDataThunk = (newData) => (dispatch) => {
+  dispatch(updateData(newData))
 }

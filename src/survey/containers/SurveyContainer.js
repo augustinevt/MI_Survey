@@ -2,13 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getData, doSomething } from '../operations/actions';
-import { defaultSelector } from '../operations/selectors';
+// import { defaultSelector } from '../operations/selectors';
 
 // import { ChartJSDefault } from '../charts';
 // import { ControlDefault } from '../charts';
 
 const mapStateToProps = ( state ) => {
-  return { data: state.data, actionData: state.actionData, selectorData: defaultSelector(state)}
+  console.log(state)
+  return { surveySections: state.surveySections }
 };
 
 const mapDispatchToProps = ({
@@ -29,6 +30,7 @@ class SurveyContainer extends React.Component {
   }
 
   render() {
+    console.log('SC: props data', this.props.questions)
     return(
       <div>
         <h1> This is the Container </h1>

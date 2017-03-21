@@ -9,6 +9,7 @@ class F3Component extends React.Component {
   }
 
   render() {
+    console.log('SCOM: render props', this.props)
     return (
       <h2> This is the SurveyComponent</h2>
     )

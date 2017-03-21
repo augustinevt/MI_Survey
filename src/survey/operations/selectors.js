@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect'
 
-const getData = (state) => state.data;
-const getActionData = (state) => state.actionData;
+const getStage = (state) => state.stage;
+const getSections = (state) => state.surveySections;
 
-export const defaultSelector = createSelector(
-  [getData, getActionData],
-  (data, actionData) => {
-    console.log(data, actionData);
-    return 'Placeholder Selector Return Data';
+export const sectionSelector = createSelector(
+  [getStage, getSections],
+  (stage, sections) => {
+    console.log(stage, sections[stage]);
+    return sections[stage];
   }
 )

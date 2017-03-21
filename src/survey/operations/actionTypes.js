@@ -1,2 +1,2 @@
-export const LOAD_DATA = 'LOAD_DATA';
-export const SOME_ACTION = 'SOME_ACTION';
+export const CHANGE_STAGE = 'CHANGE_STAGE';
+export const UPDATE_DATA = 'UPDATE_DATA';
