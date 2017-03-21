@@ -8,6 +8,12 @@ class F3Component extends React.Component {
     this.state = {};
   }
 
+  getOptions() {
+    this.props.question.forEach((q)=>{
+      console.log("")
+    })
+  }
+
   render() {
     console.log('SCOM: render props', this.props)
     return (

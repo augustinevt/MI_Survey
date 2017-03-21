@@ -63,7 +63,30 @@ const surveySections = [
 const initialQuestions = [
   {
     id: 1,
-    title: "What is this?",
+    title: "Stage Once Select",
+    type: 'select',
+    section: 0,
+    response: [
+      {
+        label: 'A button',
+        value: false,
+      },
+      {
+        label: 'A Pipe',
+        value: false,
+      },
+    ]
+  },
+  {
+    id: 2,
+    title: "Stage One Select?",
+    type: 'text',
+    section: 0,
+    response: '',
+  },
+  {
+    id: 1,
+    title: "Stage Two Select",
     type: 'select',
     section: 1,
     response: [
@@ -79,9 +102,32 @@ const initialQuestions = [
   },
   {
     id: 2,
-    title: "Text Question?",
+    title: "Stage Two Text",
     type: 'text',
     section: 1,
+    response: '',
+  },
+  {
+    id: 1,
+    title: "Stage Three Select",
+    type: 'select',
+    section: 2,
+    response: [
+      {
+        label: 'A button',
+        value: false,
+      },
+      {
+        label: 'A Pipe',
+        value: false,
+      },
+    ]
+  },
+  {
+    id: 2,
+    title: "Stage Three Select",
+    type: 'text',
+    section: 2,
     response: '',
   }
 ]
@@ -92,9 +138,7 @@ function questions(state = [], action) {
   switch (action.type) {
     case UPDATE_DATA:
     return state.map((question, index) => {
-      console.log('THIS IS FOR TEXT IN QUESTIONS', action.newQ)
        if (question.id === action.newQ.id) {
-         // Copy the object before mutating
          return Object.assign({}, question, action.newQ)
        }
        return question

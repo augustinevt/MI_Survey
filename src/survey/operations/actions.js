@@ -10,8 +10,8 @@ const updateData = newQ => ({
   newQ,
 });
 
-export const changeStageThunk = () => (dispatch) => {
-  dispatch(changeStage(1));
+export const changeStageThunk = (value) => (dispatch) => {
+  dispatch(changeStage(value));
 }
 
 export const updateDataThunk = (newData) => (dispatch) => {

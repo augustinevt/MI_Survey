@@ -27,7 +27,7 @@ class SurveyContainer extends React.Component {
   }
 
   onSectionChange(value) {
-    this.props.changeStageThunk(3)
+    this.props.changeStageThunk( this.props.stage + 1)
   }
 
   handleChange(newQ, qId) {
@@ -36,13 +36,13 @@ class SurveyContainer extends React.Component {
   }
 
   render() {
-    console.log('SecCon: props data', this.props.questions)
+    console.log('SecCon: props data', this.props)
     return(
       <div>
         <h1 onClick={ this.onSectionChange }> This is the SectionContainer </h1>
         { this.props.stage }
-        < SelectQuestion handleChange={ this.handleChange } question={this.props.questions[0]} key={1} id={0} />
-        < TextQuestion handleChange={ this.handleChange } question={this.props.questions[1]} key={2} id={0} />
+        < SelectQuestion handleChange={ this.handleChange } question={this.props.section[0]} key={1} id={0} />
+        < TextQuestion handleChange={ this.handleChange } question={this.props.section[1]} key={2} id={0} />
       </div>
     );
   }

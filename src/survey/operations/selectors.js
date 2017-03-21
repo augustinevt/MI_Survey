@@ -1,12 +1,14 @@
 import { createSelector } from 'reselect'
 
 const getStage = (state) => state.stage;
-const getSections = (state) => state.surveySections;
+const getQuestions = (state) => state.questions;
 
 export const sectionSelector = createSelector(
-  [getStage, getSections],
-  (stage, sections) => {
-    console.log(stage, sections[stage]);
-    return sections[stage];
+  [getStage, getQuestions],
+  (stage, questions) => {
+
+    return questions.filter((question) => {
+      return question.section === stage;
+    })
   }
 )

@@ -30,7 +30,7 @@ class SurveyContainer extends React.Component {
   }
 
   render() {
-    console.log('SC: props data', this.props.questions)
+    console.log('SC: props data', this.props)
     return(
       <div>
         <h1> This is the Container </h1>
