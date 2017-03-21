@@ -6,7 +6,7 @@ class UserForm extends React.Component {
     super(props);
 
     this.state = {
-
+      submitable: false,
     }
 
     this.onChange = this.onChange.bind(this);

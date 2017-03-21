@@ -21,6 +21,17 @@ class SurveyContainer extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  getInputs() {
+    // user keys and vals
+    // pass kesy and vals into input component
+  }
+
+  isFormValid() {
+    //has a collection of all the valid and invalid inputs in state
+    // state = { inputs: [ email: false, name: true ] }
+    //if all are valid than
+  }
+
   handleChange(userUpdate) {
     console.log('handle Change', userUpdate)
     this.props.updateUserThunk(userUpdate)

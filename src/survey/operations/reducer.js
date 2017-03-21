@@ -158,14 +158,11 @@ function questions(state = [], action) {
 function user(state = {}, action) {
   switch (action.type) {
     case UPDATE_USER:
-      console.log("mucho Gracias", state, action.newData, Object.assign({}, state, action.newData))
       return Object.assign({}, state, action.newData)
     default:
       return state
   }
 }
-
-
 
 const initialState = { surveySections, user: initUser, stage: 1, questions: initialQuestions }
 
