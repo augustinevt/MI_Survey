@@ -30,7 +30,11 @@ class SurveyContainer extends React.Component {
   }
 
   submitData() {
-    this.props.submitData()
+    const foo = this.props.submitData().then((res) => {
+      console.log("from the SurveyContainer... SUCCESS!", res)
+
+    })
+    console.log(foo)
   }
 
   render() {

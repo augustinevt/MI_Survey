@@ -31,7 +31,9 @@ export const updateUserThunk = (newData) => (dispatch) => {
 export const submitData = () => (dispatch, getState) => {
   const state = getState();
   const exportData = { user: state.user, questions: state.questions}
-  api.default.post(exportData).then((res) => {
+
+  return api.default.post(exportData).then((res, err) => {
     console.log(res)
+    return res
   })
 }
