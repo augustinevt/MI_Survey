@@ -1,0 +1,15 @@
+.input {
+  composes: input from "../../../shared.css";
+}
+
+.label {
+  width: 80px;
+}
+
+.inputContainer {
+  /*border: 1px solid red;*/
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  /*justify-content: center;*/
+}

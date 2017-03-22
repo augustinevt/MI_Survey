@@ -139,17 +139,17 @@ module.exports = {
       // tags. If you use code splitting, however, any async bundles will still
       // use the "style" loader inside the async code so CSS from them won't be
       // in the main CSS file.
-      // {
-      //   test: /\.css$/,
-      //   loader: ExtractTextPlugin.extract(
-      //     'style',
-      //     'css?importLoaders=1&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss',
-      //     extractTextPluginOptions
-      //   )
-      //   // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
-      // },
       {
         test: /\.css$/,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?importLoaders=1&modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss',
+          extractTextPluginOptions
+        )
+        // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+      },
+      {
+        test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style',
           'css',
@@ -158,11 +158,11 @@ module.exports = {
         )
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
-      {
-        test: /\.scss$/,
-        include: paths.appSrc,
-        loaders: ["style", "css", "sass"]
-      },
+      // {
+      //   test: /\.scss$/,
+      //   include: paths.appSrc,
+      //   loaders: ["style", "css", "sass"]
+      // },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
       {

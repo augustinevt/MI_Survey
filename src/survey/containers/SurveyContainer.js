@@ -34,7 +34,7 @@ class SurveyContainer extends React.Component {
   submitData() {
     const foo = this.props.submitData().then((res) => {
       console.log("from the SurveyContainer... SUCCESS!", res)
-
+      this.props.router.push('/success')
     })
 
     console.log(foo)
@@ -43,21 +43,9 @@ class SurveyContainer extends React.Component {
   render() {
     console.log('SC: props data', )
     return(
-      <div>
-        <h1> This is the Container </h1>
-        <ReactCSSTransitionGroup
-        transitionName={{
-          appear:'ff',
-          appearActive: 'dd',
-        }}
-        transitionAppear={true}
-        transitionAppearTimeout={2000}
-        transitionEnter={false}
-        transitionLeave={false}>
-          <h1>Fading at Initial Mount</h1>
-        </ReactCSSTransitionGroup>
+      <div className="survey-container">
+        <h1 className="survey-header"> Monsoon Inc </h1>
           { this.props.children }
-        <hr/>
         <button onClick={ this.submitData }> Submit </button>
       </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import  styles from './css/textQuestion.css';
 
 class TextQuestion extends React.Component {
 
@@ -29,8 +30,10 @@ class TextQuestion extends React.Component {
     // console.log('TextQuestion: render props', this.props);
     return (
       <div>
-        <h2> {this.props.question.title }</h2>
-        <textArea value={this.props.question.response} onChange={ this.onChange}  />
+        <h2 className={styles.header}> {this.props.question.title }</h2>
+        <div className={styles.inputContainer}>
+          <textArea className={ styles.input } value={this.props.question.response} onChange={ this.onChange}  />
+        </div>
       </div>
     )
   }

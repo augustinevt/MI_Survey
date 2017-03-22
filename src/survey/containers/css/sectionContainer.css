@@ -1,0 +1,27 @@
+.questionContainer {
+  border: solid;
+  background: #eee;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.progressContainer {
+  width: 100px;
+  border: solid;
+  height: 400px;
+  background: #efefff;
+}
+
+.sectionContainer {
+  border: 3px dashed red;
+  display: flex;
+  padding: 20px;
+}
+
+.button {
+  composes: button from '../../components/css/button.css';
+}
+
+.buttons {
+  composes: buttons from '../../components/css/selectQuestion.css';
+}

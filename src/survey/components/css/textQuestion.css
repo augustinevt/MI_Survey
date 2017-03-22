@@ -1,0 +1,17 @@
+.header {
+  text-align: center;
+}
+
+.inputContainer {
+  composes: centered from '../../../shared.css';
+  border: solid;
+  padding: 10px;
+}
+
+.input {
+  composes: input from '../../../shared.css';
+  border-radius: 10px;
+  height: 75px;
+  width: 50%;
+  padding: 10px;
+}

@@ -1,0 +1,8 @@
+.button {
+  width: 150px;
+  margin: 20px;
+  height: 75px;
+  box-shadow: 2px 2px 10px #ccc;
+  background: white;
+  composes: centered from '../../../shared.css';
+}

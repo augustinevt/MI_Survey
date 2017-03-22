@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button.js';
+import styles from './css/selectQuestion.css';
 
 class Select extends React.Component {
 
@@ -49,8 +50,8 @@ class Select extends React.Component {
     return (
 
       <div>
-        <h1>{this.props.question.title}</h1>
-        {buttons}
+        <h2>{this.props.question.title}</h2>
+        <div className={styles.buttons}> {buttons} </div>
       </div>
     )
   }

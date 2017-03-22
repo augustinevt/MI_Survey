@@ -1,0 +1,4 @@
+.buttons {
+  border: solid;
+  composes: centered from '../../../shared.css';
+}

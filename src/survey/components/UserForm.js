@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './css/userForm.css';
 
 class UserForm extends React.Component {
 
@@ -15,22 +16,45 @@ class UserForm extends React.Component {
   onChange(e) {
     const newObj = {}
     newObj[e.target.name] = e.target.value;
-    console.log('onChange', newObj )
+
     this.props.handleChange(newObj)
+  }
+
+  componentDidUpdate() {
+    //OR IN render
+    // run regex to see if there is content
+    // in case of email run some other regex
+    // have a regex store? That could be rad...
+    // if there is an error and internal state has "touched: true", apply classes and fire this.props.onError
+    // onError should be defined
+    // if no parsing error it renders as normal...
   }
 
   render() {
     return (
       <div>
         <h2>This is the user form</h2>
-        <label htmlFor="name"> name </label>
-        <input value={this.props.user.name} onChange={this.onChange} type="text" name="name" /> <br/>
-        <label htmlFor="company"> company </label>
-        <input value={this.props.user.company} onChange={this.onChange} type="text" name="company" /> <br/>
-        <label htmlFor="email"> email </label>
-        <input value={this.props.user.email} onChange={this.onChange} type="text" name="email" /> <br/>
-        <label htmlFor="phone"> phone </label>
-        <input value={this.props.user.phone} onChange={this.onChange} type="text" name="phone" />
+        
+
+        <div className={styles.inputContainer}>
+          <label className={styles.label} htmlFor="name"> name </label>
+          <input className={styles.input} value={this.props.user.name} onChange={this.onChange} type="text" name="name" /> <br/>
+        </div>
+
+        <div className={styles.inputContainer}>
+          <label className={styles.label} htmlFor="company"> company </label>
+          <input className={styles.input} value={this.props.user.company} onChange={this.onChange} type="text" name="company" /> <br/>
+        </div>
+
+        <div className={styles.inputContainer}>
+          <label className={styles.label} htmlFor="email"> email </label>
+          <input className={styles.input} value={this.props.user.email} onChange={this.onChange} type="text" name="email" /> <br/>
+        </div>
+
+        <div className={styles.inputContainer}>
+          <label className={styles.label} htmlFor="phone"> phone </label>
+          <input className={styles.input} value={this.props.user.phone} onChange={this.onChange} type="text" name="phone" />
+        </div>
       </div>
     )
   }

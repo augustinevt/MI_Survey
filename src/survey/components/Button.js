@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './css/button.css';
 
 class Button extends React.Component {
 
@@ -18,8 +19,6 @@ class Button extends React.Component {
 
     // console.log( { label, value }, this.props.id );
     // console.log( "val", value);
-
-
     this.props.onClick({ label, value }, this.props.id)
   }
 
@@ -27,7 +26,7 @@ class Button extends React.Component {
     console.log('Button: render props', this.props.value);
     const value = this.props.value ? 'True' : 'False';
     return (
-      <h2 className="bux" onClick={this.onClick}> This is Button: {this.props.label} {value} </h2>
+      <div className={styles.button} onClick={this.onClick}> { this.props.label } ({value})</div>
     )
   }
 }
