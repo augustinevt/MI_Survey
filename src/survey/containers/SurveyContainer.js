@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import styles from './surveyContainer.css';
+
 
 import { submitData } from '../operations/actions';
 // import { defaultSelector } from '../operations/selectors';
@@ -41,14 +41,14 @@ class SurveyContainer extends React.Component {
   }
 
   render() {
-    console.log('SC: props data', styles)
+    console.log('SC: props data', )
     return(
       <div>
         <h1> This is the Container </h1>
         <ReactCSSTransitionGroup
         transitionName={{
-          appear: styles.bar,
-          appearActive: styles.foo,
+          appear:'ff',
+          appearActive: 'dd',
         }}
         transitionAppear={true}
         transitionAppearTimeout={2000}

@@ -8,6 +8,8 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import surveyReducer,  { surveyContainers } from './survey';
 
+import './index.scss';
+
 const middleware = [thunk];
 
 if (process.env.NODE_ENV !== 'production') {
