@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import styles from './surveyContainer.css';
 
 import { submitData } from '../operations/actions';
 // import { defaultSelector } from '../operations/selectors';
@@ -34,15 +36,27 @@ class SurveyContainer extends React.Component {
       console.log("from the SurveyContainer... SUCCESS!", res)
 
     })
+
     console.log(foo)
   }
 
   render() {
-    console.log('SC: props data', this.props)
+    console.log('SC: props data', styles)
     return(
       <div>
         <h1> This is the Container </h1>
-        { this.props.children }
+        <ReactCSSTransitionGroup
+        transitionName={{
+          appear: styles.bar,
+          appearActive: styles.foo,
+        }}
+        transitionAppear={true}
+        transitionAppearTimeout={2000}
+        transitionEnter={false}
+        transitionLeave={false}>
+          <h1>Fading at Initial Mount</h1>
+        </ReactCSSTransitionGroup>
+          { this.props.children }
         <hr/>
         <button onClick={ this.submitData }> Submit </button>
       </div>
