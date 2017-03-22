@@ -23,7 +23,7 @@ ReactDOM.render(
     <Router history={browserHistory} >
       <Route path="/" component={ surveyContainers.SurveyContainer }>
         <Route path="/survey" component={surveyContainers.SectionContainer} />
-        <Route path="/success" component={surveyContainers.WelcomeContainer} />
+        <Route path="/success" component={surveyContainers.SuccessContainer} />
         <IndexRoute component={ surveyContainers.WelcomeContainer } />
       </Route>
     </Router>

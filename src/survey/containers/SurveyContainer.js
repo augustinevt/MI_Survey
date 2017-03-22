@@ -46,7 +46,6 @@ class SurveyContainer extends React.Component {
       <div className="survey-container">
         <h1 className="survey-header"> Monsoon Inc </h1>
           { this.props.children }
-        <button onClick={ this.submitData }> Submit </button>
       </div>
     );
   }

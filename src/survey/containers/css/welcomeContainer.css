@@ -1,0 +1,24 @@
+.button {
+  composes: button from '../../components/css/button.css';
+  border: solid;
+}
+
+.buttons {
+  composes: buttons from '../../components/css/selectQuestion.css';
+}
+
+.input {
+  composes: input from "../../../shared.css";
+}
+
+.label {
+  width: 80px;
+}
+
+.inputContainer {
+  /*border: 1px solid red;*/
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  /*justify-content: center;*/
+}

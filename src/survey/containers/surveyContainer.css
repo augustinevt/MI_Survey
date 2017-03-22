@@ -1,9 +1,0 @@
-.bar {
-  opacity: 0.01;
-	border: solid;
-}
-
-.foo {
-  opacity: 1;
-  transition: opacity 2s;
-}

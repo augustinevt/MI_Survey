@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './css/userForm.css';
 
+import { Link } from 'react-router';
+
 class UserForm extends React.Component {
 
   constructor(props) {
@@ -34,7 +36,7 @@ class UserForm extends React.Component {
     return (
       <div>
         <h2>This is the user form</h2>
-        
+
 
         <div className={styles.inputContainer}>
           <label className={styles.label} htmlFor="name"> name </label>
