@@ -32,7 +32,6 @@ class Select extends React.Component {
 
     if (this.props.singleSelect) {
       newQ.response.forEach((res) => {
-        console.log(res)
         res.value = false;
       })
     }
