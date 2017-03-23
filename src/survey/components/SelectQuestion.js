@@ -29,19 +29,16 @@ class Select extends React.Component {
 
   onClick(newRes, id) {
     const newQ =  Object.assign({}, this.props.question);
-    // console.log("SCOM: new Q : before", newQ);
 
-
-    // console.log("SCOM: newQ.response[0]",id, newQ.response[id])
-    // console.log("SCOM: newRes",id, newQ.response[id])
+    if (this.props.singleSelect) {
+      newQ.response.forEach((res) => {
+        console.log(res)
+        res.value = false;
+      })
+    }
 
     newQ.response[id] = newRes;
-
-    // console.log("SCOM: id", this.props.question.id)
-
     this.props.handleChange(newQ, this.props.question.id)
-
-    // console.log("SCOM: new Q : after", newQ);
   }
 
   render() {

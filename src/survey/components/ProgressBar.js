@@ -1,7 +1,7 @@
 import React from 'react';
 import  styles from './css/progressBar.css';
 
-class TextQuestion extends React.Component {
+class ProgressBar extends React.Component {
 
   constructor(props) {
     super(props);
@@ -18,9 +18,9 @@ class TextQuestion extends React.Component {
 
 
     return [
-      <div className={styles.active} />,
-      <div className={stageTwo} />,
-      <div className={stageThree} />,
+      <div className={styles.active} key={12} />,
+      <div className={stageTwo} key={13} />,
+      <div className={stageThree} key={14} />,
      ]
   }
 
@@ -35,4 +35,4 @@ class TextQuestion extends React.Component {
   }
 }
 
-export default TextQuestion;
+export default ProgressBar;

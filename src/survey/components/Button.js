@@ -12,7 +12,8 @@ class Button extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick() {
+  onClick(e) {
+
     const label = this.props.label;
     const value = this.props.value ? false : true;
     // const value = true;
@@ -30,7 +31,7 @@ class Button extends React.Component {
 
     const classo = classnames('foo', styles.button, { [styles.active]: value })
     return (
-      <div className={classo} onClick={this.onClick}> { this.props.label } </div>
+      <div className={classo} value={ value } onClick={this.onClick}> { this.props.label } </div>
     )
   }
 }

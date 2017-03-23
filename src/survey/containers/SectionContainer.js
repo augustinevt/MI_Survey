@@ -58,7 +58,22 @@ class SurveyContainer extends React.Component {
     } else {
       this.onSectionChange(-1)
     }
+  }
 
+  getQuestions(questions) {
+    return questions.map((question, i) => {
+      let jsx;
+
+      if ( question.type === 'text') {
+        jsx = < TextQuestion handleChange={ this.handleChange } question={ question } key={i} />
+      } else if (question.type === 'singleSelect') {
+        jsx = < SelectQuestion handleChange={ this.handleChange } singleSelect question={ question } key={i} />
+      } else {
+        jsx = < SelectQuestion handleChange={ this.handleChange } question={ question } key={i} />
+      }
+
+      return jsx;
+    });
   }
 
   handleChange(newQ, qId) {
@@ -85,9 +100,13 @@ class SurveyContainer extends React.Component {
 
     const buttons = this.props.stage !== 3 ? navButtons : submit;
 
+    const questions = this.getQuestions(this.props.section.questions);
+
+    console.log('SecCon: questions', questions)
+
     return(
       <div>
-        <h1 onClick={ this.onSectionChange }> section title </h1>
+        <h1 onClick={ this.onSectionChange }> { this.props.section.title } </h1>
         <div className={styles.sectionContainer} >
 
           <div className={styles.progressContainer}>
@@ -95,8 +114,8 @@ class SurveyContainer extends React.Component {
           </div>
 
           <div className={styles.questionContainer}>
-            < SelectQuestion handleChange={ this.handleChange } question={this.props.section[0]} key={1} id={0} />
-            < TextQuestion handleChange={ this.handleChange } question={this.props.section[1]} key={2} id={0} />
+
+            { questions }
 
             <div className={styles.buttons}>
               { buttons }

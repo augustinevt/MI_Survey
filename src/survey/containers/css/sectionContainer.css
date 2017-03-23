@@ -24,7 +24,8 @@
   /*border: 3px dashed red;*/
   display: flex;
   padding: 20px;
-  height: 500px
+  /*height: 500px*/
+  transition-duration: 5s;
 }
 
 .button {

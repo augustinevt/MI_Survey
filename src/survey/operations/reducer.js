@@ -1,61 +1,20 @@
 import { CHANGE_STAGE, UPDATE_DATA, UPDATE_USER } from './actionTypes';
 // import surveySections from '../../../mockData/questions';
-const surveySections = [
+const sections = [
   {
-    title: 'StageOne',
-    qestions: [
-      {
-        prompt: 'What is Your Favorite Color?',
-        type: 'text',
-        response: false,
-      },
-      {
-        prompt: 'What do you want to sell?',
-        type: 'select',
-        options: [
-          {
-            label: 'General Merchendise',
-            value: false,
-          },
-          {
-            label: 'Media',
-            value: false,
-          },
-        ]
-      }
-    ]
+    title: 'Section One',
+    id: 1,
+    qestions: []
   },
   {
-    title: 'StageTwo',
-    qestions: [
-      {
-        prompt: 'What is Your Favorite Color?',
-        type: 'select',
-        options: [
-          {
-            label: 'red',
-            value: false,
-          },
-          {
-            label: 'green',
-            value: false,
-          },
-          {
-            label: 'blue',
-            value: false,
-          },
-          {
-            label: 'Yellow',
-            value: false,
-          },
-        ]
-      },
-      {
-        prompt: 'What is Your Favorite Color?',
-        type: 'text',
-        response: false,
-      }
-    ]
+    title: 'Section Two',
+    id: 2,
+    qestions: []
+  },
+  {
+    title: 'Section Three',
+    id: 3,
+    qestions: []
   }
 ]
 
@@ -63,8 +22,8 @@ const surveySections = [
 const initialQuestions = [
   {
     id: 0,
-    title: "Stage Once Select",
-    type: 'select',
+    title: "Single Select?",
+    type: 'singleSelect',
     section: 1,
     response: [
       {
@@ -124,12 +83,35 @@ const initialQuestions = [
     ]
   },
   {
-    id: 5,
+    id: 6,
     title: "Stage Three Select",
     type: 'text',
-    section: 3,
+    section: 1,
     response: '',
-  }
+  },{
+    id: 7,
+    title: "Section One Multi-Select",
+    type: 'select',
+    section: 1,
+    response: [
+      {
+        label: 'A button',
+        value: false,
+      },
+      {
+        label: 'A Pipe',
+        value: false,
+      },
+      {
+        label: 'Another button',
+        value: false,
+      },
+      {
+        label: 'Another Pipe',
+        value: false,
+      },
+    ]
+  },
 ]
 
 const initUser = {
@@ -164,7 +146,7 @@ function user(state = {}, action) {
   }
 }
 
-const initialState = { surveySections, user: initUser, stage: 1, questions: initialQuestions }
+const initialState = { sections, user: initUser, stage: 1, questions: initialQuestions }
 
 const F3Reducer = (state = initialState, action) => {
   switch (action.type) {
