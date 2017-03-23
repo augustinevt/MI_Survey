@@ -6,6 +6,7 @@ import { sectionSelector } from '../operations/selectors';
 
 import SelectQuestion from '../components/SelectQuestion'
 import TextQuestion from '../components/TextQuestion';
+import ProgressBar from '../components/ProgressBar';
 
 import styles from './css/sectionContainer.css';
 
@@ -45,7 +46,7 @@ class SurveyContainer extends React.Component {
   }
 
   onSubmit() {
-    this.props.submitData().then(() => {    
+    this.props.submitData().then(() => {
       this.props.router.push('/success')
     });
   }
@@ -90,18 +91,19 @@ class SurveyContainer extends React.Component {
         <div className={styles.sectionContainer} >
 
           <div className={styles.progressContainer}>
-            <h1> {this.props.stage} </h1>
+            <ProgressBar stage={ this.props.stage } />
           </div>
 
           <div className={styles.questionContainer}>
             < SelectQuestion handleChange={ this.handleChange } question={this.props.section[0]} key={1} id={0} />
             < TextQuestion handleChange={ this.handleChange } question={this.props.section[1]} key={2} id={0} />
+
+            <div className={styles.buttons}>
+              { buttons }
+            </div>
           </div>
 
-        </div>
 
-        <div className={styles.buttons}>
-          { buttons }
         </div>
 
       </div>

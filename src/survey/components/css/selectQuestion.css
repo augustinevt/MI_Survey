@@ -1,4 +1,13 @@
 .buttons {
-  border: solid;
+  /*border: solid;*/
   composes: centered from '../../../shared.css';
+}
+
+.header {
+  text-align: center;
+}
+
+.main {
+  background: whitesmoke;
+  margin: 20px;
 }

@@ -1,0 +1,40 @@
+.main {
+  display: flex;
+  position: relative;
+  /*justify-content: center;*/
+  flex-direction: column;
+  /*align-items: center;*/
+}
+
+.line {
+  border: solid;
+  height: 150px;
+  position: absolute;
+  top: 20px;
+  left: 42%;
+  z-index: 0;
+}
+
+.node {
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+  background: #eee;
+  /*margin: auto;*/
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.active {
+  /*box-shadow: 2px 2px 10px #ddd;*/
+  border: 3px solid black;
+  background: black;
+  composes: node;
+}
+
+.inActive {
+  border: 3px solid black;
+  composes: node
+}

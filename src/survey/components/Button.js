@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './css/button.css';
+import classnames from 'classnames';
 
 class Button extends React.Component {
 
@@ -24,9 +25,12 @@ class Button extends React.Component {
 
   render() {
     console.log('Button: render props', this.props.value);
-    const value = this.props.value ? 'True' : 'False';
+    const value = this.props.value;
+
+
+    const classo = classnames('foo', styles.button, { [styles.active]: value })
     return (
-      <div className={styles.button} onClick={this.onClick}> { this.props.label } ({value})</div>
+      <div className={classo} onClick={this.onClick}> { this.props.label } </div>
     )
   }
 }

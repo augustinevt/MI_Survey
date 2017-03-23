@@ -29,10 +29,10 @@ class TextQuestion extends React.Component {
   render() {
     // console.log('TextQuestion: render props', this.props);
     return (
-      <div>
+      <div className={ styles.main }>
         <h2 className={styles.header}> {this.props.question.title }</h2>
         <div className={styles.inputContainer}>
-          <textArea className={ styles.input } value={this.props.question.response} onChange={ this.onChange}  />
+          <textArea placeholder="Please write your response..." className={ styles.input } value={this.props.question.response} onChange={ this.onChange}  />
         </div>
       </div>
     )

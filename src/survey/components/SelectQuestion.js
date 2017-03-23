@@ -49,9 +49,9 @@ class Select extends React.Component {
 
     return (
 
-      <div>
-        <h2>{this.props.question.title}</h2>
-        <div className={styles.buttons}> {buttons} </div>
+      <div className={ styles.main }>
+        <h2 className={ styles.header }>{this.props.question.title}</h2>
+        <div className={ styles.buttons }> {buttons} </div>
       </div>
     )
   }

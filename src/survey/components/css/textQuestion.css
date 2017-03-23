@@ -4,14 +4,22 @@
 
 .inputContainer {
   composes: centered from '../../../shared.css';
-  border: solid;
+  /*border: solid;*/
   padding: 10px;
 }
 
 .input {
   composes: input from '../../../shared.css';
   border-radius: 10px;
+  border: none;
   height: 75px;
-  width: 50%;
+  width: 80%;
   padding: 10px;
+  margin-bottom: 30px;
+  font-size: 0.8rem;
+}
+
+.main {
+  background: whitesmoke;
+  margin: 20px;
 }
