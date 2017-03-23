@@ -14,7 +14,7 @@ api.default = {
   post(data) {
     return new Promise((resolve, reject) => {
       request
-        .post('http://localhost:8080/survey')
+        .post('http://localhost:7000/survey-data')
         .send(data)
         .end((err, res) => {
           console.log('api res', res);
