@@ -29,13 +29,24 @@ class Select extends React.Component {
 
   onClick(newRes, id) {
     const newQ =  Object.assign({}, this.props.question);
+    //btw, the 'id' is the index value of the modified response.
+    //It is sent up from the button. I wonder if it's safe though...
+    const oldRes = this.props.question.response[id];
+
 
     if (this.props.singleSelect) {
+      // purpose: so that users cannot unselect a singleSelect button
+      // by clicking again.
+      if (oldRes.value === true) {
+        return;
+      }
+
       newQ.response.forEach((res) => {
         res.value = false;
       })
     }
 
+    newRes.value = newRes.value ? false : true;
     newQ.response[id] = newRes;
     this.props.handleChange(newQ, this.props.question.id)
   }
