@@ -1,5 +1,6 @@
 .header {
   text-align: center;
+  padding-top: 8px;
 }
 
 .inputContainer {
@@ -22,4 +23,5 @@
 .main {
   background: whitesmoke;
   margin: 20px;
+  /*padding-top: 10px;*/
 }

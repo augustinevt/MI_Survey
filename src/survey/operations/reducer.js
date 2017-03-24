@@ -22,118 +22,80 @@ const sections = [
 const initialQuestions = [
   {
     id: 0,
-    title: "Single Select",
+    title: "Are you interested in selling on Walmart?",
     type: 'singleSelect',
     section: 1,
     response: [
       {
-        label: 'A button',
+        label: 'Yes',
         value: false,
       },
       {
-        label: 'A Pipe',
+        label: 'No',
         value: false,
       },
     ]
   },
   {
     id: 1,
-    title: "Stage One Select",
+    title: "Please tell us why...",
     type: 'text',
     section: 1,
     response: '',
-  },
-  {
-    id: 2,
-    title: "Stage Two Select",
+  },{
+    id: 7,
+    title: "What would you like to Sell?",
     type: 'select',
-    section: 3,
+    section: 2,
     response: [
       {
-        label: 'A button',
+        label: 'Used EGM',
         value: false,
       },
       {
-        label: 'A Pipe',
+        label: 'Used Media',
+        value: false,
+      },
+      {
+        label: 'Old Socks',
+        value: false,
+      },
+      {
+        label: 'New EGM',
         value: false,
       },
     ]
-  },
-  {
+  },{
     id: 3,
-    title: "Stage Two Text",
+    title: "Tell us more about what you want to sell...",
     type: 'text',
     section: 2,
     response: '',
-  },
-  {
-    id: 4,
-    title: "Stage Three Select",
-    type: 'select',
-    section: 0,
+  },{
+    id: 8,
+    title: "When would you like to start selling?",
+    type: 'singleSelect',
+    section: 3,
     response: [
       {
-        label: 'A button',
+        label: '1-2 months',
         value: false,
       },
       {
-        label: 'A Pipe',
+        label: '3-4 months',
+        value: false,
+      },
+      {
+        label: '7 years',
         value: false,
       },
     ]
-  },
-  {
+  },{
     id: 6,
     title: "Stage One Text",
     type: 'text',
     section: 3,
     response: '',
-  },{
-    id: 7,
-    title: "Section One Multi-Select",
-    type: 'select',
-    section: 2,
-    response: [
-      {
-        label: 'A button',
-        value: false,
-      },
-      {
-        label: 'A Pipe',
-        value: false,
-      },
-      {
-        label: 'Another button',
-        value: false,
-      },
-      {
-        label: 'Another Pipe',
-        value: false,
-      },
-    ]
-  },{
-    id: 8,
-    title: "Section One Multi-Select",
-    type: 'select',
-    section: 0,
-    response: [
-      {
-        label: 'A button',
-        value: false,
-      },
-      {
-        label: 'A Pipe',
-        value: false,
-      },
-      {
-        label: 'Another button',
-        value: false,
-      },
-      {
-        label: 'Another Pipe',
-        value: false,
-      },
-    ]
   },
 ]
 

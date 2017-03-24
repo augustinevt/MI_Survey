@@ -5,9 +5,11 @@
 
 .header {
   text-align: center;
+  padding-top: 8px;
 }
 
 .main {
   background: whitesmoke;
   margin: 20px;
+  /*padding-top: 5px;*/
 }
