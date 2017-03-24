@@ -48,7 +48,7 @@ class SurveyContainer extends React.Component {
     console.log('WelCon: props data', this.props)
     return(
       <div>
-      <h1> Welcome to Walmart!</h1>
+      <h1 className={ styles.header }> Welcome to Walmart!</h1>
       <div className={ styles.welcomeContainer }>
         <div className={ styles.formContainer }>
 

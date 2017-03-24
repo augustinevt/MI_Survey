@@ -5,6 +5,10 @@
   height: 50px;
 }
 
+.header {
+  /*text-align: center;*/
+}
+
 .buttons {
   composes: buttons from '../../components/css/selectQuestion.css';
 }
@@ -23,7 +27,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  /*justify-content: center;*/
+  justify-content: center;
 }
 
 .welcomeContainer {
@@ -32,6 +36,7 @@
   /*flex-wrap: wrap;*/
   background: #eee;
   padding: 50px 20px 50px 20px;
+  max-width: 850px;
 }
 
 .formContainer {

@@ -3,27 +3,31 @@
   background: #eee;
   width: 100%;
   margin-left: 10px;
+  min-width: 810px;
 }
 
 .header {
-  text-align: center;
+  padding-left: 31px;
 }
 
 .progressContainer {
   width: 100px;
   /*border: solid;*/
   height: 100%;
-  background: #eee;
+  /*background: #eee;*/
+  position: absolute;
+  left: -100px;
 
   display: flex;
   justify-content: center;
-  /*align-items: center;*/
+  align-items: center;
 }
 
 .sectionContainer {
   /*border: 3px dashed red;*/
   display: flex;
   padding: 20px;
+  position: relative;
   /*height: 500px*/
   transition-duration: 5s;
 }

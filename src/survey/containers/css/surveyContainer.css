@@ -1,5 +1,17 @@
 .header {
   text-align: center;
-  border-bottom: solid;
+  border: solid;
+  /*margin: auto;*/
+  padding: 10px;
+  display: inline-block;
+}
 
+.headerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
 }

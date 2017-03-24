@@ -46,8 +46,13 @@ class SurveyContainer extends React.Component {
     console.log('SC: props data', )
     return(
       <div className="survey-container">
-        <h1 className={styles.header}> Monsoon Inc </h1>
+        <div className={styles.headerContainer}>
+          <h1 className={styles.header}> Monsoon Inc </h1>
+        </div>
+        <hr/>
+        <div className={ styles.main }>
           { this.props.children }
+        </div>
       </div>
     );
   }
