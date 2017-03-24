@@ -1,20 +1,5 @@
-.bar {
-  opacity: 0.0;
-}
+.header {
+  text-align: center;
+  border-bottom: solid;
 
-.foo {
-  opacity: 1;
-  transition: opacity 2s;
-}
-
-.leave {
-  opacity: 1;
-}
-
-.leaveActive {
-  opacity: 0.01;
-  transition: opacity 2000ms ease-in;
-}
-
-.mainContainer {
 }

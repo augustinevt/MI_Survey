@@ -22,7 +22,7 @@ const sections = [
 const initialQuestions = [
   {
     id: 0,
-    title: "Single Select?",
+    title: "Single Select",
     type: 'singleSelect',
     section: 1,
     response: [
@@ -38,7 +38,7 @@ const initialQuestions = [
   },
   {
     id: 1,
-    title: "Stage One Select?",
+    title: "Stage One Select",
     type: 'text',
     section: 1,
     response: '',
@@ -84,7 +84,7 @@ const initialQuestions = [
   },
   {
     id: 6,
-    title: "Stage Three Select",
+    title: "Stage One Text",
     type: 'text',
     section: 1,
     response: '',
@@ -93,6 +93,29 @@ const initialQuestions = [
     title: "Section One Multi-Select",
     type: 'select',
     section: 1,
+    response: [
+      {
+        label: 'A button',
+        value: false,
+      },
+      {
+        label: 'A Pipe',
+        value: false,
+      },
+      {
+        label: 'Another button',
+        value: false,
+      },
+      {
+        label: 'Another Pipe',
+        value: false,
+      },
+    ]
+  },{
+    id: 8,
+    title: "Section One Multi-Select",
+    type: 'select',
+    section: 3,
     response: [
       {
         label: 'A button',

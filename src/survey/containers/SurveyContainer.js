@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+import styles from './css/surveyContainer.css'
+
 
 import { submitData } from '../operations/actions';
 // import { defaultSelector } from '../operations/selectors';
@@ -44,7 +46,7 @@ class SurveyContainer extends React.Component {
     console.log('SC: props data', )
     return(
       <div className="survey-container">
-        <h1 className="survey-header"> Monsoon Inc </h1>
+        <h1 className={styles.header}> Monsoon Inc </h1>
           { this.props.children }
       </div>
     );

@@ -106,7 +106,7 @@ class SurveyContainer extends React.Component {
 
     return(
       <div>
-        <h1 onClick={ this.onSectionChange }> { this.props.section.title } </h1>
+        <h1 className={ styles.header } onClick={ this.onSectionChange }> { this.props.section.title } </h1>
         <div className={styles.sectionContainer} >
 
           <div className={styles.progressContainer}>
@@ -122,9 +122,7 @@ class SurveyContainer extends React.Component {
             </div>
           </div>
 
-
         </div>
-
       </div>
     );
   }
