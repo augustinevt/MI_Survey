@@ -16,7 +16,8 @@
   height: 100%;
   /*background: #eee;*/
   position: absolute;
-  left: -100px;
+  left: -75px;
+  top: -30px;
 
   display: flex;
   justify-content: center;

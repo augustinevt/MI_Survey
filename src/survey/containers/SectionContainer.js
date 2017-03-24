@@ -46,9 +46,10 @@ class SurveyContainer extends React.Component {
   }
 
   onSubmit() {
-    this.props.submitData().then(() => {
-      this.props.router.push('/success')
-    });
+    this.props.router.push('/success')
+    // this.props.submitData().then(() => {
+    //   this.props.router.push('/success')
+    // });
   }
 
   onBack() {

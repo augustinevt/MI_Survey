@@ -47,7 +47,7 @@ const initialQuestions = [
     id: 2,
     title: "Stage Two Select",
     type: 'select',
-    section: 2,
+    section: 3,
     response: [
       {
         label: 'A button',
@@ -70,7 +70,7 @@ const initialQuestions = [
     id: 4,
     title: "Stage Three Select",
     type: 'select',
-    section: 3,
+    section: 0,
     response: [
       {
         label: 'A button',
@@ -86,13 +86,13 @@ const initialQuestions = [
     id: 6,
     title: "Stage One Text",
     type: 'text',
-    section: 1,
+    section: 3,
     response: '',
   },{
     id: 7,
     title: "Section One Multi-Select",
     type: 'select',
-    section: 1,
+    section: 2,
     response: [
       {
         label: 'A button',
@@ -115,7 +115,7 @@ const initialQuestions = [
     id: 8,
     title: "Section One Multi-Select",
     type: 'select',
-    section: 3,
+    section: 0,
     response: [
       {
         label: 'A button',

@@ -1,0 +1,11 @@
+a {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: grey;
+  font-size: 1.3rem;
+}
+
+.successAnchor {
+  text-decoration: underline;
+}

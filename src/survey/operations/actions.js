@@ -34,6 +34,6 @@ export const submitData = () => (dispatch, getState) => {
 
   return api.default.post(exportData).then((res, err) => {
     console.log(res)
-    return res
+    return res;
   })
 }
