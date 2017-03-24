@@ -18,9 +18,12 @@ const mapDispatchToProps = ({
 class SurveyContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      errors: {}
+    };
     this.handleChange = this.handleChange.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.isFormValid = this.isFormValid.bind(this);
   }
 
   getInputs() {
@@ -28,8 +31,12 @@ class SurveyContainer extends React.Component {
     // pass kesy and vals into input component
   }
 
-  isFormValid() {
-    //more to come? use redux form?
+  isFormValid(e) {
+    const { name, email, company } = this.props.user;
+
+    if (name && email && company) {
+      this.props.router.push('/survey')
+    }
   }
 
   onChange(e) {
@@ -67,14 +74,9 @@ class SurveyContainer extends React.Component {
             <input className={styles.input} value={this.props.user.email} onChange={this.onChange} type="text" name="email" /> <br/>
           </div>
 
-          <div className={styles.inputContainer}>
-            <label className={styles.label} htmlFor="phone"> Phone </label>
-            <input className={styles.input} value={this.props.user.phone} onChange={this.onChange} type="text" name="phone" />
-          </div>
-
           <div className={ styles.buttons } >
-            <div className={ styles.button }>
-              <Link to="/survey"> Start Survey </Link>
+            <div onClick={ this.isFormValid } className={ styles.button }>
+              Start Survey
             </div>
           </div>
 

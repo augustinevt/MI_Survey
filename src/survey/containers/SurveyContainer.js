@@ -13,7 +13,7 @@ import { submitData } from '../operations/actions';
 
 const mapStateToProps = ( state ) => {
   console.log(state)
-  return { surveySections: state.surveySections }
+  return { user: state.user }
 };
 
 const mapDispatchToProps = ({
@@ -46,6 +46,7 @@ class SurveyContainer extends React.Component {
     console.log('SC: props data', )
     return(
       <div className="survey-container">
+        { this.props.user.name }
         <div className={styles.headerContainer}>
           <h1 className={styles.header}> Monsoon Inc </h1>
         </div>
