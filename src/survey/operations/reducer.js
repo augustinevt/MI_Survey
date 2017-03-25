@@ -101,7 +101,6 @@ const initialQuestions = [
 
 const initUser = {
   name: '',
-  phone: '',
   company: '',
   email: '',
 }

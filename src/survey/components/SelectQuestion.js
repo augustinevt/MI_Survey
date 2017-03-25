@@ -57,6 +57,7 @@ class Select extends React.Component {
     return (
 
       <div className={ styles.main }>
+        { this.props.errorMessage }
         <h2 className={ styles.header }>{this.props.question.title}</h2>
         <div className={ styles.buttons }> {buttons} </div>
       </div>

@@ -32,7 +32,26 @@ class SurveyContainer extends React.Component {
   }
 
   isFormValid(e) {
+    const user = this.props.user;
     const { name, email, company } = this.props.user;
+
+    const newErrors = {};
+
+    Object.keys(this.props.user).forEach((field) => {
+
+      const val =  user[field];
+
+      console.log("VAL", user, field, user[field])
+
+
+      if(!val) {
+        console.log('VAL', newErrors)
+        newErrors[field] = 'Required';
+      }
+
+    })
+
+    this.setState({ errors: newErrors })
 
     if (name && email && company) {
       this.props.router.push('/survey')
@@ -51,35 +70,34 @@ class SurveyContainer extends React.Component {
     this.props.updateUserThunk(userUpdate)
   }
 
+  getFields(user) {
+    return Object.keys(user).map((field) => {
+      return (
+        <div className={styles.inputContainer}>
+          <label className={styles.label} htmlFor={field}> { field } </label>
+          <input className={styles.input} value={user[field]} onChange={this.onChange} type="text" name={field} key={field} />
+          <span className={styles.errors}> { this.state.errors[field] } </span>
+        </div>
+      )
+    })
+  }
+
   render() {
-    console.log('WelCon: props data', this.props)
+    console.log('VAL: props data', this.state);
+    const form = this.getFields(this.props.user);
     return(
       <div>
       <h1 className={ styles.header }> Welcome to Walmart!</h1>
       <div className={ styles.welcomeContainer }>
         <div className={ styles.formContainer }>
 
-          <div className={styles.inputContainer}>
-            <label className={styles.label} htmlFor="name"> Name </label>
-            <input className={styles.input} value={this.props.user.name} onChange={this.onChange} type="text" name="name" /> <br/>
-          </div>
-
-          <div className={styles.inputContainer}>
-            <label className={styles.label} htmlFor="company"> Company </label>
-            <input className={styles.input} value={this.props.user.company} onChange={this.onChange} type="text" name="company" /> <br/>
-          </div>
-
-          <div className={styles.inputContainer}>
-            <label className={styles.label} htmlFor="email"> Email </label>
-            <input className={styles.input} value={this.props.user.email} onChange={this.onChange} type="text" name="email" /> <br/>
-          </div>
+          { form }
 
           <div className={ styles.buttons } >
             <div onClick={ this.isFormValid } className={ styles.button }>
               Start Survey
             </div>
           </div>
-
 
         </div>
         <div className={styles.contentContainer}>

@@ -24,7 +24,9 @@ const mapDispatchToProps = ({
 class SurveyContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      errors: {}
+    };
 
     this.onSectionChange = this.onSectionChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -40,13 +42,22 @@ class SurveyContainer extends React.Component {
   }
 
   onNext() {
-    if ((this.props.stage + 1 ) <= 3) {
+    // const select = this.checkSelect(this.props.section.questions[0])
+    // const text = this.checkText(this.props.section.questions[1])
+    // const flag = ( select && text );
+
+    const flag = this.isFormValid();
+    console.log('sVal isNext', flag);
+    if ( this.validate(this.props.section.questions) && ((this.props.stage + 1 ) <= 3) ) {
       this.onSectionChange(1)
     }
   }
 
   onSubmit() {
-    this.props.router.push('/success')
+
+    if ( this.validate(this.props.section.questions)) {
+      this.props.router.push('/success')
+    }
     // this.props.submitData().then(() => {
     //   this.props.router.push('/success')
     // });
@@ -66,11 +77,11 @@ class SurveyContainer extends React.Component {
       let jsx;
 
       if ( question.type === 'text') {
-        jsx = < TextQuestion handleChange={ this.handleChange } question={ question } key={i} />
+        jsx = < TextQuestion handleChange={ this.handleChange } errorMessage={ this.state.errors[question.id] } question={ question } key={i} />
       } else if (question.type === 'singleSelect') {
-        jsx = < SelectQuestion handleChange={ this.handleChange } singleSelect question={ question } key={i} />
+        jsx = < SelectQuestion handleChange={ this.handleChange } errorMessage={ this.state.errors[question.id] } singleSelect question={ question } key={i} />
       } else {
-        jsx = < SelectQuestion handleChange={ this.handleChange } question={ question } key={i} />
+        jsx = < SelectQuestion handleChange={ this.handleChange } errorMessage={ this.state.errors[question.id] } question={ question } key={i} />
       }
 
       return jsx;
@@ -82,8 +93,56 @@ class SurveyContainer extends React.Component {
     this.props.updateDataThunk(newQ)
   }
 
+  isFormValid() {
+    const errors = Object.keys(this.state.errors);
+    console.log('sVal', errors)
+    if (errors.length > 0) {
+      return false;
+    }
+    return true;
+  }
+
+  validate(questions) {
+    console.log('sVal: questions', questions)
+    const errors = {};
+    let flag = true;
+    questions.forEach((q) => {
+      if (q.type === 'text') {
+        // I know this is a bit over the top...
+        if (!this.checkText(q)) {
+          errors[q.id] = 'Please include Response';
+          flag = false;
+        }
+      // because the only other type is select;
+      } else if ( !this.checkSelect(q) ) {
+        errors[q.id] = "Please provide a selection";
+        flag = false;
+      }
+    })
+    this.setState({ errors });
+    console.log('sVal: validate flag', flag)
+    return flag;
+  }
+
+  checkText(question) {
+    return question.response ? true : false;
+  }
+
+  checkSelect(question){
+    let flag = false;
+    console.log('checkSelect', question)
+    question.response.forEach((res) => {
+      if (res.value === true) {
+        flag = true;
+      }
+    })
+    console.log('sVal checkSelect return', flag)
+    return flag;
+  }
+
+
   render() {
-    console.log('SecCon: props data', this.props)
+    console.log('sVal: render props', this.state.errors)
 
     const navButtons = (
       <div className={styles.buttons}>
