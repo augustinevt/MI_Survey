@@ -22,6 +22,16 @@ api.default = {
         });
     });
   },
+  get(email) {
+    return new Promise((resolve, reject) => {
+      request
+        .get(`http://localhost:7000/checkEmail/${email}`)
+        .end((err, res) => {
+          console.log('api res', res);
+          responseHandler(reject, resolve, err, res);
+        });
+    });
+  },
 };
 
 export default api;

@@ -1,4 +1,4 @@
-import { CHANGE_STAGE, UPDATE_DATA, UPDATE_USER } from './actionTypes';
+import { CHANGE_STAGE, UPDATE_DATA, UPDATE_USER, GET_USER } from './actionTypes';
 // import surveySections from '../../../mockData/questions';
 const sections = [
   {
@@ -148,6 +148,10 @@ const F3Reducer = (state = initialState, action) => {
        user: user(state.user, action)
      })
 
+    case GET_USER:
+      const {company, name, email } = action.user;
+
+      return { ...state, user: {company, name, email}}
     default:
       console.log("THIS IS THE INITIAL STATE", state)
       return {...state}

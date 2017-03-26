@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './css/welcomeContainer.css';
 
-import { updateUserThunk } from '../operations/actions';
+import api from '../../helpers/api';
+
+import { updateUserThunk, getUserThunk } from '../operations/actions';
 
 import UserForm from '../components/UserForm';
 
@@ -13,17 +15,20 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ({
   updateUserThunk,
+  getUserThunk,
 })
 
 class SurveyContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      errors: {}
+      errors: {},
+      email: true,
     };
     this.handleChange = this.handleChange.bind(this);
     this.onChange = this.onChange.bind(this);
     this.isFormValid = this.isFormValid.bind(this);
+    this.getEmail = this.getEmail.bind(this);
   }
 
   getInputs() {
@@ -58,6 +63,15 @@ class SurveyContainer extends React.Component {
     }
   }
 
+  getEmail() {
+    // this.setState({ errors: { knownUser: 'We could not find you...'}})
+    console.log("getUser", this.searchEmail.value)
+    this.props.getUserThunk(this.searchEmail.value).catch((err) => {
+      this.setState({ errors: { knownUser: 'We could not find you...'}})
+    });
+    this.setState({email: false})
+  }
+
   onChange(e) {
     const newObj = {}
     newObj[e.target.name] = e.target.value;
@@ -66,20 +80,53 @@ class SurveyContainer extends React.Component {
   }
 
   handleChange(userUpdate) {
-    console.log('handle Change', userUpdate)
+
     this.props.updateUserThunk(userUpdate)
   }
 
   getFields(user) {
-    return Object.keys(user).map((field) => {
+
+    const email = this.state.email;
+    let jsx;
+
+    if ( email ) {
       return (
-        <div className={styles.inputContainer}>
-          <label className={styles.label} htmlFor={field}> { field } </label>
-          <input className={styles.input} value={user[field]} onChange={this.onChange} type="text" name={field} key={field} />
-          <span className={styles.errors}> { this.state.errors[field] } </span>
+        <div className={styles.fromContainer}>
+          <div className={styles.inputContainer}>
+            <label className={styles.label} htmlFor={'email'}> email </label>
+            <input ref={ (input) => this.searchEmail = input } className={styles.input} type="text" name="email" />
+          </div>
+          <div className={ styles.buttons } >
+            <div onClick={ this.getEmail } className={ styles.button }>
+              Check Email
+            </div>
+          </div>
         </div>
       )
-    })
+    } else {
+      jsx = Object.keys(user).map((field) => {
+        return (
+          <div className={styles.inputContainer}>
+          <label className={styles.label} htmlFor={field} key={field + 'label'}> { field }  </label>
+          <input className={styles.input} value={user[field]} onChange={this.onChange} type="text" name={field} key={field} />
+          <span className={styles.errors} key={field + 'errors'}> { this.state.errors[field] } </span>
+          </div>
+        )
+      })
+      return (
+        <div className={styles.fromContainer}>
+          { this.state.errors.knownUser }
+          { jsx }
+          <div className={ styles.buttons } >
+            <div onClick={ this.isFormValid } className={ styles.button }>
+              Start Survey
+            </div>
+          </div>
+        </div>
+      )
+
+    }
+
   }
 
   render() {
@@ -92,12 +139,6 @@ class SurveyContainer extends React.Component {
         <div className={ styles.formContainer }>
 
           { form }
-
-          <div className={ styles.buttons } >
-            <div onClick={ this.isFormValid } className={ styles.button }>
-              Start Survey
-            </div>
-          </div>
 
         </div>
         <div className={styles.contentContainer}>

@@ -30,41 +30,30 @@ class SurveyContainer extends React.Component {
 
     this.onSectionChange = this.onSectionChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
     this.onNext = this.onNext.bind(this)
     this.onBack = this.onBack.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
   onSectionChange(val) {
-    console.log('FOOO')
     this.props.changeStageThunk( this.props.stage + val)
   }
 
   onNext() {
-    // const select = this.checkSelect(this.props.section.questions[0])
-    // const text = this.checkText(this.props.section.questions[1])
-    // const flag = ( select && text );
-
-    const flag = this.isFormValid();
-    console.log('sVal isNext', flag);
     if ( this.validate(this.props.section.questions) && ((this.props.stage + 1 ) <= 3) ) {
       this.onSectionChange(1)
     }
   }
 
   onSubmit() {
-
     if ( this.validate(this.props.section.questions)) {
-      this.props.router.push('/success')
+      this.props.submitData().then(() => {
+        this.props.router.push('/success')
+      });
     }
-    // this.props.submitData().then(() => {
-    //   this.props.router.push('/success')
-    // });
   }
 
   onBack() {
-
     if ((this.props.stage -1 ) < 1) {
       this.props.router.push('/')
     } else {
@@ -89,23 +78,13 @@ class SurveyContainer extends React.Component {
   }
 
   handleChange(newQ, qId) {
-    console.log("CHANGE HANDLED", newQ, qId);
     this.props.updateDataThunk(newQ)
   }
 
-  isFormValid() {
-    const errors = Object.keys(this.state.errors);
-    console.log('sVal', errors)
-    if (errors.length > 0) {
-      return false;
-    }
-    return true;
-  }
-
   validate(questions) {
-    console.log('sVal: questions', questions)
     const errors = {};
     let flag = true;
+
     questions.forEach((q) => {
       if (q.type === 'text') {
         // I know this is a bit over the top...
@@ -120,7 +99,7 @@ class SurveyContainer extends React.Component {
       }
     })
     this.setState({ errors });
-    console.log('sVal: validate flag', flag)
+
     return flag;
   }
 
@@ -130,13 +109,13 @@ class SurveyContainer extends React.Component {
 
   checkSelect(question){
     let flag = false;
-    console.log('checkSelect', question)
+
     question.response.forEach((res) => {
       if (res.value === true) {
         flag = true;
       }
     })
-    console.log('sVal checkSelect return', flag)
+
     return flag;
   }
 
