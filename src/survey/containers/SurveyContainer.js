@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import styles from './css/surveyContainer.css'
-
+import UserDisplay from '../components/UserDisplay';
 
 import { submitData } from '../operations/actions';
 // import { defaultSelector } from '../operations/selectors';
@@ -24,35 +24,31 @@ class SurveyContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-
-    this.onChange = this.onChange.bind(this);
-    this.submitData = this.submitData.bind(this);
   }
 
-  onChange(value) {
-    this.props.changeF3Filter(value)
-  }
 
-  submitData() {
-    const foo = this.props.submitData().then((res) => {
-      console.log("from the SurveyContainer... SUCCESS!", res)
-      this.props.router.push('/success')
-    })
 
-    console.log(foo)
+  getUserDisplay() {
+    const path = this.props.location.pathname;
+
+    if (path === '/') {
+      return <UserDisplay />;
+    }
+    return <UserDisplay name={this.props.user.name} company={ this.props.user.company } />;
   }
 
   render() {
-    console.log('SC: props data', )
-    return(
+    console.log('SC: props data', this.props.location.pathname )
+    const userDisplay = this.getUserDisplay();
+    return (
       <div className="survey-container">
-        { this.props.user.name }
         <div className={styles.headerContainer}>
+          { userDisplay }
           <h1 className={styles.header}> Monsoon Inc </h1>
         </div>
         <hr/>
         <div className={ styles.main }>
-          { this.props.children }
+         { React.cloneElement(this.props.children, { key: 'childKey' }) }
         </div>
       </div>
     );

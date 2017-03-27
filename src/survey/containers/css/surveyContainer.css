@@ -1,5 +1,5 @@
 .header {
-  text-align: center;
+  /*text-align: center;*/
   border: solid;
   /*margin: auto;*/
   padding: 10px;
@@ -7,8 +7,9 @@
 }
 
 .headerContainer {
-  display: flex;
-  justify-content: center;
+  /*display: flex;*/
+  border: solid;
+  /*justify-content: center;*/
 }
 
 .main {
