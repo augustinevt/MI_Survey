@@ -32,9 +32,9 @@ class SurveyContainer extends React.Component {
     const path = this.props.location.pathname;
 
     if (path === '/') {
-      return <UserDisplay />;
+      return <div></div>;
     }
-    return <UserDisplay name={this.props.user.name} company={ this.props.user.company } />;
+    return <UserDisplay name={this.props.user.name} company={this.props.user.company } />;
   }
 
   render() {
@@ -43,10 +43,13 @@ class SurveyContainer extends React.Component {
     return (
       <div className="survey-container">
         <div className={styles.headerContainer}>
-          { userDisplay }
-          <h1 className={styles.header}> Monsoon Inc </h1>
+          <div className={styles.logoContainer}>
+            <h1 className={styles.header}> Monsoon </h1>
+          </div>
+          <div className={styles.userContainer}>
+            { userDisplay }
+          </div>
         </div>
-        <hr/>
         <div className={ styles.main }>
          { React.cloneElement(this.props.children, { key: 'childKey' }) }
         </div>

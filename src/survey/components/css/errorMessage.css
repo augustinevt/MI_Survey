@@ -1,0 +1,8 @@
+.errorContainer {
+  composes: errorContainer from '../../../shared.css';
+  composes: centered from '../../../shared.css';
+}
+
+.icon {
+  composes: icon from '../../../shared.css';
+}

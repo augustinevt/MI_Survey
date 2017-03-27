@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import styles from './css/welcomeContainer.css';
 
-import api from '../../helpers/api';
-
 import { updateUserThunk, getUserThunk } from '../operations/actions';
 
-import UserForm from '../components/UserForm';
+import ErrorMessage from '../components/ErrorMessage';
 
 const mapStateToProps = ( state ) => {
   return { user: state.user }
@@ -109,7 +107,7 @@ class SurveyContainer extends React.Component {
           <div className={styles.inputContainer}>
             <label className={styles.label} htmlFor={field} key={field + 'label'}> { field }  </label>
             <input className={styles.input} value={user[field]} onChange={this.onChange} type="text" name={field} key={field} />
-            <span className={styles.errors} key={field + 'errors'}> { this.state.errors[field] } </span>
+            <ErrorMessage errorMessage={ this.state.errors[field] } key={`${field}-error`} />
           </div>
         )
       })
@@ -137,7 +135,12 @@ class SurveyContainer extends React.Component {
       <h1 className={ styles.header }> Welcome to Walmart!</h1>
       <div className={ styles.welcomeContainer }>
         <div className={styles.contentContainer}>
-          <div> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          <div>
+          Because of this exciting new partnership, and our amazing engineering team, we are ready to start bringing customers live on the Walmart marketplace
+If you are interested in selling on Walmart, please let us know why you anticipate success on that channel and in what timeframe you will be ready.
+We are also looking for five customers who are ready to integrate within the next two weeks to be our VIP pilot group. Please indicate that you would like to participate in the survey if you’re interested.
+
+          </div>
         </div>
         <div className={ styles.formContainer }>
 

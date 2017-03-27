@@ -1,6 +1,10 @@
 import React from 'react';
 import Button from './Button.js';
+import ErrorMessage from './ErrorMessage.js';
+
 import styles from './css/selectQuestion.css';
+
+import img from '../../exclamation.svg';
 
 class Select extends React.Component {
 
@@ -57,7 +61,7 @@ class Select extends React.Component {
     return (
 
       <div className={ styles.main }>
-        { this.props.errorMessage }
+        <ErrorMessage errorMessage={this.props.errorMessage} />
         <h2 className={ styles.header }>{this.props.question.title}</h2>
         <div className={ styles.buttons }> {buttons} </div>
       </div>

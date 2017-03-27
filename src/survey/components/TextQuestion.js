@@ -1,5 +1,8 @@
 import React from 'react';
 import  styles from './css/textQuestion.css';
+import icon from '../../exclamation.svg';
+
+import ErrorMessage from './ErrorMessage';
 
 class TextQuestion extends React.Component {
 
@@ -30,7 +33,7 @@ class TextQuestion extends React.Component {
     // console.log('TextQuestion: render props', this.props);
     return (
       <div className={ styles.main }>
-        { this.props.errorMessage }
+        <ErrorMessage errorMessage={this.props.errorMessage} />
         <h2 className={styles.header}> {this.props.question.title }</h2>
         <div className={styles.inputContainer}>
           <textArea placeholder="Please write your response..." className={ styles.input } value={this.props.question.response} onChange={ this.onChange}  />

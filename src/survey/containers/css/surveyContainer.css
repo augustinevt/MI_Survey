@@ -1,15 +1,29 @@
 .header {
   /*text-align: center;*/
-  border: solid;
+  /*border: solid;*/
   /*margin: auto;*/
-  padding: 10px;
+  /*padding: 10px;*/
   display: inline-block;
 }
 
+.userContainer {
+  /*border: solid;*/
+  display: inline-block;
+  margin-left: auto;
+}
+
+.logoContainer {
+  /*border: solid;*/
+}
+
 .headerContainer {
-  /*display: flex;*/
-  border: solid;
-  /*justify-content: center;*/
+  display: flex;
+  /*border: solid;*/
+  align-items: center;
+  justify-content: left;
+  background: #f6f5f2;
+  margin: auto;
+  padding: 0 40px 0 40px;
 }
 
 .main {

@@ -1,6 +1,25 @@
 .main {
-  border: solid;
-  height: 50px;
+  /*border: solid;*/
+  /*height: 50px;*/
   /*width: 100px;*/
-  float: right;
+  /*float: right;*/
+  /*margin-top: 10px;*/
+  display: inline-block;
+}
+
+.inputs {
+  /*border: 1px solid #E8E7E2 ;*/
+  border-radius: 30px;
+  padding: 5px;
+  margin: 5px;
+  min-height: 15px;
+  min-width: 150px;
+  background: white;
+  border: 1px solid #E8E7E2;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.name, .company {
+  composes: inputs;
 }
