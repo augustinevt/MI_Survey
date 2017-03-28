@@ -21,6 +21,7 @@ class SurveyContainer extends React.Component {
     super(props);
     this.state = {
       errors: {},
+      loading: false,
       email: true,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -56,10 +57,12 @@ class SurveyContainer extends React.Component {
   }
 
   getEmail() {
-    this.props.getUserThunk(this.searchEmail.value).catch((err) => {
-      this.setState({ errors: { knownUser: 'We could not find your email on record. Please enter your contact information.'}})
+    this.props.getUserThunk(this.searchEmail.value).then(() => {
+      this.setState({email: false});
+    }).catch((err) => {
+      this.setState({ errors: { knownUser: 'We could not find your email on record. Please enter your contact information.'}});
+      this.setState({email: false});
     });
-    this.setState({email: false})
   }
 
   onChange(e) {
@@ -92,62 +95,111 @@ class SurveyContainer extends React.Component {
   }
 
   getFields(user) {
-
     const email = this.state.email;
-    let jsx;
-
-    if ( email ) {
-      return (
-        <div className={styles.fromContainer}>
-          <div className={styles.inputContainer}>
-            <input
-                ref={ (input) => this.searchEmail = input }
-                onChange={this.onChange}
-                onKeyPress={ this.onEmailKeyPress }
-                placeholder="Please enter your Monsoon email..."
-                className={styles.input}
-                type="text"
-                name="email" />
-          </div>
-          <div className={ styles.buttons } >
-            <div onClick={ this.getEmail } className={ styles.button }>
-              Check Email
-            </div>
-          </div>
-        </div>
-      )
-    } else {
-      jsx = Object.keys(user).map((field) => {
+    const inputs = Object.keys(user).map((field) => {
+      if (field === "email") {
+        return;
+      } else {
         return (
           <div className={styles.inputContainer}>
-            <input
-              className={styles.input}
-              value={user[field]}
-              placeholder={`${field}`}
-              onChange={this.onChange}
-              onKeyPress={ this.onFormKeyPress }
-              type="text"
-              name={field}
-              key={field} />
-            <ErrorMessage errorMessage={ this.state.errors[field] } key={`${field}-error`} />
+          <input
+          className={styles.input}
+          value={user[field]}
+          placeholder={`${field}`}
+          onChange={this.onChange}
+          onKeyPress={ this.onFormKeyPress }
+          type="text"
+          name={field}
+          key={field}
+          />
+          <ErrorMessage errorMessage={ this.state.errors[field] } key={`${field}-error`} />
           </div>
         )
-      })
-      return (
+      }
+    });
+
+    const form = !email ? inputs : <div></div> ;
+    const button = email ?  <div onClick={ this.getEmail } className={ styles.button }> Check Email </div> : <div onClick={ this.isFormValid } className={ styles.button }> Start Survey </div>;
+
+    return (
         <div className={styles.fromContainer}>
+          <div className={styles.inputContainer}>
+            <input
+               ref={ (input) => this.searchEmail = input }
+               onChange={this.onChange}
+               onKeyPress={ this.onEmailKeyPress }
+               placeholder="Please enter your Monsoon email..."
+               className={styles.input}
+               type="text"
+               name="email"
+            />
+            <ErrorMessage errorMessage={ this.state.errors.email } key={`email-error`} />
+          </div>
+          { form }
+          <div className={ styles.buttons } >
+            { button }
+          </div>
           <div className={styles.errors}>
             { this.state.errors.knownUser }
           </div>
-          { jsx }
-          <div className={ styles.buttons } >
-            <div onClick={ this.isFormValid } className={ styles.button }>
-              Start Survey
-            </div>
-          </div>
         </div>
       )
 
-    }
+    // const email = this.state.email;
+    // let jsx;
+    //
+    // if ( email ) {
+    //   return (
+    //     <div className={styles.fromContainer}>
+    //       <div className={styles.inputContainer}>
+    //         <input
+    //             ref={ (input) => this.searchEmail = input }
+    //             onChange={this.onChange}
+    //             onKeyPress={ this.onEmailKeyPress }
+    //             placeholder="Please enter your Monsoon email..."
+    //             className={styles.input}
+    //             type="text"
+    //             name="email" />
+    //       </div>
+    //       <div className={ styles.buttons } >
+    //         <div onClick={ this.getEmail } className={ styles.button }>
+    //           Check Email
+    //         </div>
+    //       </div>
+    //     </div>
+    //   )
+    // } else {
+    //   jsx = Object.keys(user).map((field) => {
+    //     return (
+    //       <div className={styles.inputContainer}>
+    //         <input
+    //           className={styles.input}
+    //           value={user[field]}
+    //           placeholder={`${field}`}
+    //           onChange={this.onChange}
+    //           onKeyPress={ this.onFormKeyPress }
+    //           type="text"
+    //           name={field}
+    //           key={field} />
+    //         <ErrorMessage errorMessage={ this.state.errors[field] } key={`${field}-error`} />
+    //       </div>
+    //     )
+    //   })
+    //   return (
+    //     <div className={styles.fromContainer}>
+    //       <div className={styles.errors}>
+    //         { this.state.errors.knownUser }
+    //       </div>
+    //       { jsx }
+    //       <div className={ styles.buttons } >
+    //         <div onClick={ this.isFormValid } className={ styles.button }>
+    //           Start Survey
+    //         </div>
+    //       </div>
+    //     </div>
+    //   )
+    //
+    // }
 
   }
 
