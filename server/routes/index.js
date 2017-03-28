@@ -4,7 +4,7 @@ var db = require('../queries');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile('index');
+  res.render('index');
 });
 
 router.post('/survey-data', db.saveBlob);

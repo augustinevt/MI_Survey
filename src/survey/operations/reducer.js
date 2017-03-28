@@ -28,7 +28,7 @@ const initialQuestions = [
     response: [
       {
         label: 'Yes',
-        value: false,
+        value: true,
       },
       {
         label: 'No',
@@ -44,7 +44,7 @@ const initialQuestions = [
     response: [
       {
         label: 'Yes',
-        value: false,
+        value: true,
       },
       {
         label: 'No',
@@ -65,7 +65,7 @@ const initialQuestions = [
     response: [
       {
         label: '< 1 Month',
-        value: false,
+        value: true,
       },
       {
         label: '1 to 2 months',
@@ -88,7 +88,7 @@ const initialQuestions = [
     response: [
       {
         label: '1st',
-        value: false,
+        value: true,
       },
       {
         label: '2nd - 5th',
