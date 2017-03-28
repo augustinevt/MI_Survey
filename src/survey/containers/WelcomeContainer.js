@@ -44,7 +44,7 @@ class SurveyContainer extends React.Component {
     Object.keys(this.props.user).forEach((field) => {
       const val =  user[field];
       if (!val) {
-        newErrors[field] = 'Required';
+        newErrors[field] = true;
       }
     });
 
