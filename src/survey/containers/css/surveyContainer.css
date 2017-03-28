@@ -4,10 +4,13 @@
   /*margin: auto;*/
   /*padding: 10px;*/
   display: inline-block;
+  color: black;
 }
 
 .userContainer {
   /*border: solid;*/
+  /*height: 100px;*/
+  /*background: white;*/
   display: inline-block;
   margin-left: auto;
 }

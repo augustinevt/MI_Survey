@@ -65,7 +65,7 @@ class SurveyContainer extends React.Component {
     // this.setState({ errors: { knownUser: 'We could not find you...'}})
     console.log("getUser", this.searchEmail.value)
     this.props.getUserThunk(this.searchEmail.value).catch((err) => {
-      this.setState({ errors: { knownUser: 'We could not find you...'}})
+      this.setState({ errors: { knownUser: 'We could not find your email on record. Please enter your contact information.'}})
     });
     this.setState({email: false})
   }
@@ -91,8 +91,7 @@ class SurveyContainer extends React.Component {
       return (
         <div className={styles.fromContainer}>
           <div className={styles.inputContainer}>
-            <label className={styles.label} htmlFor={'email'}> email </label>
-            <input ref={ (input) => this.searchEmail = input } className={styles.input} type="text" name="email" />
+            <input ref={ (input) => this.searchEmail = input } placeholder="Please enter your Monsoon email..." className={styles.input} type="text" name="email" />
           </div>
           <div className={ styles.buttons } >
             <div onClick={ this.getEmail } className={ styles.button }>
@@ -105,15 +104,16 @@ class SurveyContainer extends React.Component {
       jsx = Object.keys(user).map((field) => {
         return (
           <div className={styles.inputContainer}>
-            <label className={styles.label} htmlFor={field} key={field + 'label'}> { field }  </label>
-            <input className={styles.input} value={user[field]} onChange={this.onChange} type="text" name={field} key={field} />
+            <input className={styles.input} value={user[field]} placeholder={`${field}`} onChange={this.onChange} type="text" name={field} key={field} />
             <ErrorMessage errorMessage={ this.state.errors[field] } key={`${field}-error`} />
           </div>
         )
       })
       return (
         <div className={styles.fromContainer}>
-          { this.state.errors.knownUser }
+          <div className={styles.errors}>
+            { this.state.errors.knownUser }
+          </div>
           { jsx }
           <div className={ styles.buttons } >
             <div onClick={ this.isFormValid } className={ styles.button }>
@@ -132,14 +132,13 @@ class SurveyContainer extends React.Component {
     const form = this.getFields(this.props.user);
     return(
       <div>
-      <h1 className={ styles.header }> Welcome to Walmart!</h1>
+      <h1 className={ styles.header }> Monsoon is now a Walmart Channel Partner! </h1>
       <div className={ styles.welcomeContainer }>
         <div className={styles.contentContainer}>
           <div>
-          Because of this exciting new partnership, and our amazing engineering team, we are ready to start bringing customers live on the Walmart marketplace
-If you are interested in selling on Walmart, please let us know why you anticipate success on that channel and in what timeframe you will be ready.
-We are also looking for five customers who are ready to integrate within the next two weeks to be our VIP pilot group. Please indicate that you would like to participate in the survey if you’re interested.
-
+            <p> Because of this exciting new partnership, and our amazing engineering team, we are ready to start bringing customers live on the Walmart marketplace. </p>
+            <p> If you are interested in selling on Walmart, please let us know why you anticipate success on that channel and in what timeframe you will be ready. </p>
+            <p> We are also looking for five customers who are ready to integrate within the next two weeks to be our VIP pilot group. Please indicate that you would like to participate in the survey if you’re interested. </p>
           </div>
         </div>
         <div className={ styles.formContainer }>

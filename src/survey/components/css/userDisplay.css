@@ -4,22 +4,32 @@
   /*width: 100px;*/
   /*float: right;*/
   /*margin-top: 10px;*/
+  /*position: absolute;*/
+  /*left: 200px;*/
+  /*padding: 20px;*/
+  background: white;
+  border-radius: 8px;
   display: inline-block;
 }
 
 .inputs {
   /*border: 1px solid #E8E7E2 ;*/
-  border-radius: 30px;
-  padding: 5px;
-  margin: 5px;
+  /*border-radius: 30px;*/
+  padding: 3px;
+  /*margin: 5px;*/
   min-height: 15px;
   min-width: 150px;
-  background: white;
-  border: 1px solid #E8E7E2;
+  /*display: inline-block;*/
+  /*background: white;*/
+  /*border: 1px solid #E8E7E2;*/
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .name, .company {
   composes: inputs;
+}
+
+.name {
+  /*border-bottom: 0.5px solid #ddd;*/
 }

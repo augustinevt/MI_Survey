@@ -1,11 +1,21 @@
 a {
-  text-align: center;
-  display: block;
+  /*text-align: center;*/
+  /*display: block;*/
   text-decoration: none;
   color: grey;
-  font-size: 1.3rem;
+  /*font-size: 1.3rem;*/
 }
 
 .successAnchor {
   text-decoration: underline;
+}
+
+.main {
+  padding: 30px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.header {
+  text-align: center;
 }

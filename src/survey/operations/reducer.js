@@ -2,17 +2,17 @@ import { CHANGE_STAGE, UPDATE_DATA, UPDATE_USER, GET_USER } from './actionTypes'
 // import surveySections from '../../../mockData/questions';
 const sections = [
   {
-    title: 'Section One',
+    title: 'Monsoon and Walmart Integration Survey',
     id: 1,
     qestions: []
   },
   {
-    title: 'Section Two',
+    title: 'Monsoon and Walmart Integration Survey',
     id: 2,
     qestions: []
   },
   {
-    title: 'Section Three',
+    title: 'Monsoon and Walmart Integration Survey',
     id: 3,
     qestions: []
   }
@@ -22,7 +22,7 @@ const sections = [
 const initialQuestions = [
   {
     id: 0,
-    title: "Are you interested in selling on Walmart?",
+    title: "Do you currently sell on the Walmart marketplace?",
     type: 'singleSelect',
     section: 1,
     response: [
@@ -34,65 +34,78 @@ const initialQuestions = [
         label: 'No',
         value: false,
       },
-    ]
+    ],
   },
   {
     id: 1,
-    title: "Please tell us why...",
-    type: 'text',
+    title: "Are you interested in being one of our VIP pilot customers for the Monsoon and Walmart marketplace integration?",
+    type: 'singleSelect',
     section: 1,
+    response: [
+      {
+        label: 'Yes',
+        value: false,
+      },
+      {
+        label: 'No',
+        value: false,
+      },
+    ],
+  },{
+    id: 3,
+    title: "Why are you interested in selling on the Walmart marketplace?",
+    type: 'text',
+    section: 2,
     response: '',
   },{
     id: 7,
-    title: "What would you like to Sell?",
+    title: "When do you want to start selling on the Walmart marketplace?",
     type: 'select',
     section: 2,
     response: [
       {
-        label: 'Used EGM',
+        label: '< 1 Month',
         value: false,
       },
       {
-        label: 'Used Media',
+        label: '1 to 2 months',
         value: false,
       },
       {
-        label: 'Old Socks',
+        label: '2 to 4 months',
         value: false,
       },
       {
-        label: 'New EGM',
+        label: '4 to 6 months',
         value: false,
       },
     ]
   },{
-    id: 3,
-    title: "Tell us more about what you want to sell...",
-    type: 'text',
-    section: 2,
-    response: '',
-  },{
     id: 8,
-    title: "When would you like to start selling?",
+    title: "How do you expect the Walmart marketplace to rank among the other channels that you currently sell products on?",
     type: 'singleSelect',
     section: 3,
     response: [
       {
-        label: '1-2 months',
+        label: '1st',
         value: false,
       },
       {
-        label: '3-4 months',
+        label: '2nd - 5th',
         value: false,
       },
       {
-        label: '7 years',
+        label: '5th - 10th',
         value: false,
       },
+      // {
+      //   label: 'Top Ten Channels',
+      //   value: false,
+      // },
     ]
   },{
     id: 6,
-    title: "Stage One Text",
+    title: "What’s your estimated GMV for the Walmart marketplace in 2017?",
     type: 'text',
     section: 3,
     response: '',

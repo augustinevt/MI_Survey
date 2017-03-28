@@ -34,7 +34,7 @@ class SurveyContainer extends React.Component {
     if (path === '/') {
       return <div></div>;
     }
-    return <UserDisplay name={this.props.user.name} company={this.props.user.company } />;
+    return <UserDisplay name={this.props.user.name} company={this.props.user.company} />;
   }
 
   render() {

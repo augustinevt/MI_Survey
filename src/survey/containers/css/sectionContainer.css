@@ -9,7 +9,8 @@
 }
 
 .header {
-  padding-left: 31px;
+  /*padding-left: 31px;*/
+  text-align: center;
 }
 
 .progressContainer {

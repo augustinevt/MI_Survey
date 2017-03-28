@@ -6,15 +6,24 @@
 }
 
 .header {
-  /*text-align: center;*/
+  text-align: center;
 }
 
 .buttons {
   composes: buttons from '../../components/css/selectQuestion.css';
+  /*justify-content: flex-end;*/
 }
 
 .input {
   composes: input from "../../../shared.css";
+  width: 330px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.errors {
+  text-align: center;
+  margin: 20px 10px;
 }
 
 .label {
@@ -47,6 +56,7 @@
   margin: 10px;
   width: 50%;
   padding: 20px;
+  padding-top: 40px;
   background: white;
   border-radius: 8px;
 }

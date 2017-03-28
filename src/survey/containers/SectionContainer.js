@@ -89,12 +89,12 @@ class SurveyContainer extends React.Component {
       if (q.type === 'text') {
         // I know this is a bit over the top...
         if (!this.checkText(q)) {
-          errors[q.id] = 'Please include Response';
+          errors[q.id] = true;
           flag = false;
         }
       // because the only other type is select;
       } else if ( !this.checkSelect(q) ) {
-        errors[q.id] = "Please provide a selection";
+        errors[q.id] = true;
         flag = false;
       }
     })

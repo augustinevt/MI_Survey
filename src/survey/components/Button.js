@@ -28,11 +28,14 @@ class Button extends React.Component {
   render() {
     console.log('Button: render props', this.props.value);
     const value = this.props.value;
-
-
     const classo = classnames('foo', styles.button, { [styles.active]: value })
+
     return (
-      <div className={classo} value={ value } onClick={this.onClick}> { this.props.label } </div>
+      <div className={classo} value={ value } onClick={this.onClick}>
+        <div className={styles.buttonLabel}>
+          { this.props.label }
+        </div>
+      </div>
     )
   }
 }
