@@ -44,6 +44,7 @@
   /*border: solid;*/
   display: flex;
   /*flex-wrap: wrap;*/
+  border-radius: 8px;
   background: rgb(246,245,242);
   padding: 50px 20px 50px 20px;
   max-width: 850px;

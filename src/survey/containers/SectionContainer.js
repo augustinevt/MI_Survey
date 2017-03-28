@@ -6,6 +6,7 @@ import { sectionSelector } from '../operations/selectors';
 
 import SelectQuestion from '../components/SelectQuestion'
 import TextQuestion from '../components/TextQuestion';
+import NumberQuestion from '../components/NumberQuestion';
 import ProgressBar from '../components/ProgressBar';
 
 import styles from './css/sectionContainer.css';
@@ -69,6 +70,8 @@ class SurveyContainer extends React.Component {
         jsx = < TextQuestion handleChange={ this.handleChange } errorMessage={ this.state.errors[question.id] } question={ question } key={i} />
       } else if (question.type === 'singleSelect') {
         jsx = < SelectQuestion handleChange={ this.handleChange } errorMessage={ this.state.errors[question.id] } singleSelect question={ question } key={i} />
+      } else if (question.type === 'number') {
+        jsx = < NumberQuestion handleChange={ this.handleChange } errorMessage={ this.state.errors[question.id] } question={ question } key={i} />
       } else {
         jsx = < SelectQuestion handleChange={ this.handleChange } errorMessage={ this.state.errors[question.id] } question={ question } key={i} />
       }

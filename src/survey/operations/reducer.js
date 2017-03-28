@@ -106,7 +106,7 @@ const initialQuestions = [
   },{
     id: 6,
     title: "What’s your estimated GMV for the Walmart marketplace in 2017?",
-    type: 'text',
+    type: 'number',
     section: 3,
     response: '',
   },

@@ -11,11 +11,12 @@ class UserDisplay extends React.Component {
     const comma = this.props.name ? ',' : '';
     return (
       <div className={ styles.main } >
-        <div className={ styles.name } > { this.props.name }{ comma } </div>
-        <div className={ styles.company } > { this.props.company } </div>
+        <div className={ styles.name } > { this.props.name }</div>
       </div>
     )
   }
 }
 
 export default UserDisplay;
+
+// <div className={ styles.company } > { this.props.company } </div>

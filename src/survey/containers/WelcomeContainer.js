@@ -27,6 +27,8 @@ class SurveyContainer extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.isFormValid = this.isFormValid.bind(this);
     this.getEmail = this.getEmail.bind(this);
+    this.onEmailKeyPress = this.onEmailKeyPress.bind(this);
+    this.onFormKeyPress = this.onFormKeyPress.bind(this);
   }
 
   getInputs() {
@@ -37,22 +39,14 @@ class SurveyContainer extends React.Component {
   isFormValid(e) {
     const user = this.props.user;
     const { name, email, company } = this.props.user;
-
     const newErrors = {};
 
     Object.keys(this.props.user).forEach((field) => {
-
       const val =  user[field];
-
-      console.log("VAL", user, field, user[field])
-
-
-      if(!val) {
-        console.log('VAL', newErrors)
+      if (!val) {
         newErrors[field] = 'Required';
       }
-
-    })
+    });
 
     this.setState({ errors: newErrors })
 
@@ -62,8 +56,6 @@ class SurveyContainer extends React.Component {
   }
 
   getEmail() {
-    // this.setState({ errors: { knownUser: 'We could not find you...'}})
-    console.log("getUser", this.searchEmail.value)
     this.props.getUserThunk(this.searchEmail.value).catch((err) => {
       this.setState({ errors: { knownUser: 'We could not find your email on record. Please enter your contact information.'}})
     });
@@ -77,9 +69,26 @@ class SurveyContainer extends React.Component {
     this.handleChange(newObj)
   }
 
-  handleChange(userUpdate) {
-
+  handleChange(userUpdate = {}) {
     this.props.updateUserThunk(userUpdate)
+  }
+
+  onEmailKeyPress(e) {
+    console.log(e.charCode)
+    if (e.charCode === 13) {
+      console.log('HK this has run')
+      e.preventDefault();
+      this.getEmail();
+    }
+  }
+
+  onFormKeyPress(e) {
+    console.log(e.charCode)
+    if (e.charCode === 13) {
+      console.log('HK this has run')
+      e.preventDefault();
+      this.isFormValid();
+    }
   }
 
   getFields(user) {
@@ -91,7 +100,14 @@ class SurveyContainer extends React.Component {
       return (
         <div className={styles.fromContainer}>
           <div className={styles.inputContainer}>
-            <input ref={ (input) => this.searchEmail = input } placeholder="Please enter your Monsoon email..." className={styles.input} type="text" name="email" />
+            <input
+                ref={ (input) => this.searchEmail = input }
+                onChange={this.onChange}
+                onKeyPress={ this.onEmailKeyPress }
+                placeholder="Please enter your Monsoon email..."
+                className={styles.input}
+                type="text"
+                name="email" />
           </div>
           <div className={ styles.buttons } >
             <div onClick={ this.getEmail } className={ styles.button }>
@@ -104,7 +120,15 @@ class SurveyContainer extends React.Component {
       jsx = Object.keys(user).map((field) => {
         return (
           <div className={styles.inputContainer}>
-            <input className={styles.input} value={user[field]} placeholder={`${field}`} onChange={this.onChange} type="text" name={field} key={field} />
+            <input
+              className={styles.input}
+              value={user[field]}
+              placeholder={`${field}`}
+              onChange={this.onChange}
+              onKeyPress={ this.onFormKeyPress }
+              type="text"
+              name={field}
+              key={field} />
             <ErrorMessage errorMessage={ this.state.errors[field] } key={`${field}-error`} />
           </div>
         )

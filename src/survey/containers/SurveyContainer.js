@@ -44,7 +44,7 @@ class SurveyContainer extends React.Component {
       <div className="survey-container">
         <div className={styles.headerContainer}>
           <div className={styles.logoContainer}>
-            <h1 className={styles.header}> Monsoon </h1>
+            <h1 className={styles.header}> monsoon </h1>
           </div>
           <div className={styles.userContainer}>
             { userDisplay }
