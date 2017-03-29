@@ -48,3 +48,9 @@
 .buttons {
   composes: buttons from '../../components/css/selectQuestion.css';
 }
+
+@media (max-width: 768px) {
+  .questionContainer {
+    width: 400px;
+  }
+}

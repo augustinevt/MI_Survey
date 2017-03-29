@@ -1,6 +1,6 @@
 import React from 'react';
 
-import avatar from '../../avaterTemp.svg';
+import avatar from '../../avatar6-lightest.svg';
 import styles from './css/userDisplay.css';
 
 class UserDisplay extends React.Component {
@@ -14,7 +14,7 @@ class UserDisplay extends React.Component {
     return (
       <div className={ styles.main } >
         <img className={ styles.avatar } src={ avatar } alt="avatar" />
-        <div className={ styles.name } > Simon Lucas </div>
+        <div className={ styles.name } > { this.props.name } </div>
       </div>
     )
   }
@@ -23,6 +23,3 @@ class UserDisplay extends React.Component {
 UserDisplay.defaultProps = { name: 'foo' }
 
 export default UserDisplay;
-
-// <div className={ styles.name } > { this.props.name } kill </div>
-// <div className={ styles.company } > { this.props.company } </div>

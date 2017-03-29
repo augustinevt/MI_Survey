@@ -60,9 +60,8 @@ class SurveyContainer extends React.Component {
     this.props.getUserThunk(this.searchEmail.value).then(() => {
       this.setState({email: false});
     }).catch((err) => {
-      this.setState({ errors: { knownUser: 'We could not find your email on record. Please enter your contact information.'}});
-      this.setState({email: false});
-    });
+      this.setState({email: false})
+    })
   }
 
   onChange(e) {

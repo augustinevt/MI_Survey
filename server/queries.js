@@ -5,8 +5,9 @@ var options = {
   promiseLib: promise
 };
 
+var connectionString = process.env.WALMARTSURVEY_CONNECTIONSTRING;
+
 var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://nodeuser:abc123@localhost:5432/walmart_survey';
 var db = pgp(connectionString);
 
 // add query functions

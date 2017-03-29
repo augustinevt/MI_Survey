@@ -27,3 +27,9 @@
   border: 2px solid  rgba(0, 204, 102, 0.5);
   background: rgba(0, 204, 102, 0.3);
 }
+
+@media (max-width: 768px) {
+  .button {
+    width: 100%;
+  }
+}

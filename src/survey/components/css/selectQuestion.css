@@ -22,3 +22,9 @@
   /*box-shadow: 2px 2px 10px #ccc;*/
   /*padding-top: 5px;*/
 }
+
+@media (max-width: 768px) {
+  .main {
+    width: 80%;
+  }
+}
