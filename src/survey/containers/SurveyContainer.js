@@ -4,7 +4,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import styles from './css/surveyContainer.css'
 import UserDisplay from '../components/UserDisplay';
-
 import { submitData } from '../operations/actions';
 
 const mapStateToProps = ( state ) => {

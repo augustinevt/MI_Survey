@@ -38,5 +38,22 @@
 
 .main {
   display: flex;
+  /*border: solid;*/
   justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+
+  .header {
+    width: 700px;
+  }
+  .headerContainer {
+    padding: 0 40px 20px 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .userContainer {
+    margin: 0px;
+  }
 }

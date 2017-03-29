@@ -50,3 +50,14 @@
   transition: all 1s;
   composes: node
 }
+
+@media (max-width: 768px) {
+  .main {
+    /*border: solid;*/
+    transform: rotate(-90deg);
+  }
+
+  .node {
+    transform: rotate(90deg);
+  }
+}

@@ -12,6 +12,8 @@
 
 .header {
   text-align: center;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .buttons {
@@ -103,5 +105,12 @@
     align-items: center;
     margin-bottom: 10px;
     /*justify-content: center;*/
+  }
+
+  .input {
+    composes: input from "../../../shared.css";
+    width: 80%;
+    height: 40px;
+    font-size: 1rem;
   }
 }

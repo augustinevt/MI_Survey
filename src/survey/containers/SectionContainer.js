@@ -149,7 +149,7 @@ class SurveyContainer extends React.Component {
     console.log('SecCon: questions', questions)
 
     return(
-      <div>
+      <div className={ styles.main }>
         <h1 className={ styles.header } onClick={ this.onSectionChange }> { this.props.section.title } </h1>
         <div className={styles.sectionContainer} >
 
