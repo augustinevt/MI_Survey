@@ -51,6 +51,13 @@
 
 @media (max-width: 768px) {
   .questionContainer {
-    width: 400px;
+    background: red;
+    width: 300px;
+    min-width: inherit;
+  }
+
+  .sectionContainer {
+    background: orange;
+    width: 300px;
   }
 }

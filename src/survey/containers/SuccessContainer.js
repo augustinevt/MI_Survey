@@ -16,9 +16,9 @@ class SuccessContainer extends React.Component {
     console.log('WelCon: props data', this.props)
     return(
       <div className={styles.main}>
-        <h1 className={styles.header}> You’re all done! Thank you! </h1>
+        <h1 className={styles.header}> Thank you! Youre all done! </h1>
         <p> If you expressed interest in being in the VIP pilot group, you will hear back from us in the next week. Otherwise, expect to hear more about this exciting opportunity and what you need to do in the weeks ahead. </p>
-        <p> For more information on the awesome new direction of Monsoon, <a className={styles.successAnchor} href="http://www.spacex.com/dragon"> click here! </a> </p>
+        <p> If you have any questions, please <a href="mailto:jseiffert@monsooninc.com"> let us know </a>.</p>
       </div>
     );
   }

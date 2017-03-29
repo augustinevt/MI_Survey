@@ -127,7 +127,7 @@ class SurveyContainer extends React.Component {
                ref={ (input) => this.searchEmail = input }
                onChange={this.onChange}
                onKeyPress={ this.onEmailKeyPress }
-               placeholder="Please enter your Monsoon email..."
+               placeholder="email"
                className={styles.input}
                type="text"
                name="email"

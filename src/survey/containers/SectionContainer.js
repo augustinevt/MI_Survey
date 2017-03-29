@@ -89,14 +89,16 @@ class SurveyContainer extends React.Component {
     let flag = true;
 
     questions.forEach((q) => {
-      if (q.type === 'text' || q.type === 'number') {
+      if (q.type === 'text') {
         // I know this is a bit over the top...
         if (!this.checkText(q)) {
           errors[q.id] = true;
           flag = false;
         }
       // because the only other type is select;
-      } else if ( !this.checkSelect(q) ) {
+    } else if (q.type === 'number') {
+      return;
+    } else if ( !this.checkSelect(q) ) {
         errors[q.id] = true;
         flag = false;
       }

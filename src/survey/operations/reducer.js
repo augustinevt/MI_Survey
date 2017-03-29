@@ -28,11 +28,11 @@ const initialQuestions = [
     response: [
       {
         label: 'Yes',
-        value: true,
+        value: false,
       },
       {
         label: 'No',
-        value: false,
+        value: true,
       },
     ],
   },
@@ -60,7 +60,7 @@ const initialQuestions = [
   },{
     id: 7,
     title: "When do you want to start selling on the Walmart marketplace?",
-    type: 'select',
+    type: 'singleSelect',
     section: 2,
     response: [
       {
