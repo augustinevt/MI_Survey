@@ -39,6 +39,7 @@
 .name {
   /*border-bottom: 0.5px solid #ddd;*/
   /*border: solid;*/
+  padding: 0px 10px;
 }
 
 @media (max-width: 768px) {
