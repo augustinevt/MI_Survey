@@ -12,7 +12,6 @@ import ProgressBar from '../components/ProgressBar';
 import styles from './css/sectionContainer.css';
 
 const mapStateToProps = ( state ) => {
-  console.log(state)
   return { section: sectionSelector(state), stage: state.stage, questions: state.questions }
 };
 
@@ -124,10 +123,7 @@ class SurveyContainer extends React.Component {
     return flag;
   }
 
-
   render() {
-    console.log('sVal: render props', this.state.errors)
-
     const navButtons = (
       <div className={styles.buttons}>
         <div className={styles.button} value={3} onClick={ this.onBack }> back </div>
@@ -143,10 +139,7 @@ class SurveyContainer extends React.Component {
     )
 
     const buttons = this.props.stage !== 3 ? navButtons : submit;
-
     const questions = this.getQuestions(this.props.section.questions);
-
-    console.log('SecCon: questions', questions)
 
     return(
       <div className={ styles.main }>

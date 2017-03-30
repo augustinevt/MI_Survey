@@ -1,13 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import styles from './css/surveyContainer.css'
 import UserDisplay from '../components/UserDisplay';
 import { submitData } from '../operations/actions';
 
 const mapStateToProps = ( state ) => {
-  console.log(state)
   return { user: state.user }
 };
 
@@ -31,7 +29,6 @@ class SurveyContainer extends React.Component {
   }
 
   render() {
-    console.log('SC: props data', this.props.location.pathname )
     const userDisplay = this.getUserDisplay();
     return (
       <div className="survey-container">

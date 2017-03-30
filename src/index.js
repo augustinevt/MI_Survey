@@ -5,10 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
 import surveyReducer,  { surveyContainers } from './survey';
-
-import './index.scss';
 
 const middleware = [thunk];
 

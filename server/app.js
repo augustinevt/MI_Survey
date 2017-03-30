@@ -30,6 +30,7 @@ app.use(cookieParser());
 app.use('/static/css', express.static(path.join(__dirname, './../build/static/css')))
 app.use('/static/js', express.static(path.join(__dirname, './../build/static/js')))
 app.use('/static/media', express.static(path.join(__dirname, './../build/static/media')))
+app.use('/', express.static(path.join(__dirname, './../build')))
 
 
 // app.use(express.static(path.join(__dirname, '/build')));

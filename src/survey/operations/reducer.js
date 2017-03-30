@@ -1,5 +1,4 @@
 import { CHANGE_STAGE, UPDATE_DATA, UPDATE_USER, GET_USER } from './actionTypes';
-// import surveySections from '../../../mockData/questions';
 const sections = [
   {
     title: 'Monsoon and Walmart Integration Survey',
@@ -98,10 +97,6 @@ const initialQuestions = [
         label: '5th - 10th',
         value: false,
       },
-      // {
-      //   label: 'Top Ten Channels',
-      //   value: false,
-      // },
     ]
   },{
     id: 6,
@@ -148,7 +143,6 @@ const initialState = { sections, user: initUser, stage: 1, questions: initialQue
 const F3Reducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_STAGE:
-      console.log("in Change_Stage", action.newStage)
       return { ...state, stage: action.newStage }
 
     case UPDATE_DATA:
@@ -166,7 +160,6 @@ const F3Reducer = (state = initialState, action) => {
 
       return { ...state, user: {company, name, email}}
     default:
-      console.log("THIS IS THE INITIAL STATE", state)
       return {...state}
   }
 }

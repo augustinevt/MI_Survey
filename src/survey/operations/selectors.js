@@ -18,8 +18,6 @@ export const sectionSelector = createSelector(
 
     currentSection.questions = sectionQuestions;
 
-    console.log("in selector", currentSection)
-
     return currentSection;
   }
 )

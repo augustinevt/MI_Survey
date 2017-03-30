@@ -18,7 +18,6 @@ module.exports = {
 };
 
 function saveBlob(req, res, next) {
-  console.log(req);
   db.none('INSERT INTO blobs (blob) VALUES ($1)', JSON.stringify(req.body))
     .then(function(){
       res.status(200)
@@ -30,7 +29,6 @@ function saveBlob(req, res, next) {
 }
 
 function checkEmail(req, res, next) {
-  console.log(req);
   var email = req.params.email;
   db.one("SELECT * FROM users WHERE email = $1", email)
     .then(function(data){

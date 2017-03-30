@@ -1,10 +1,7 @@
 import React from 'react';
 import Button from './Button.js';
 import ErrorMessage from './ErrorMessage.js';
-
 import styles from './css/selectQuestion.css';
-
-import img from '../../exclamation.svg';
 
 class Select extends React.Component {
 

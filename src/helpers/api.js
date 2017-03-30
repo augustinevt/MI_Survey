@@ -6,7 +6,6 @@ import { browserHistory } from 'react-router';
 const api = {};
 
 const responseHandler = (reject, resolve, err, res) => {
-  console.log('RH res', res)
   return resolve(res.body);
 };
 
@@ -14,10 +13,9 @@ api.default = {
   post(data) {
     return new Promise((resolve, reject) => {
       request
-        .post('http://localhost:7000/survey-data')
+        .post('/survey-data')
         .send(data)
         .end((err, res) => {
-          console.log('api res', res);
           responseHandler(reject, resolve, err, res);
         });
     });
@@ -25,9 +23,8 @@ api.default = {
   get(email) {
     return new Promise((resolve, reject) => {
       request
-        .get(`http://localhost:7000/checkEmail/${email}`)
+        .get(`/checkEmail/${email}`)
         .end((err, res) => {
-          console.log('api res', res);
           responseHandler(reject, resolve, err, res);
         });
     });
